@@ -9,4 +9,4 @@
             $password = $_POST['pass'];
                 $sql = "INSERT INTO loginhelp (email, nick, pass) VALUES ($email, $nickname, $password)";
     }
-?>
+    }

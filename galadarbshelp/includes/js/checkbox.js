@@ -31,18 +31,19 @@ function activateButton(id, bet) {
     const buttons = document.querySelectorAll('.currency-btn-' + id);
     let currency = document.getElementById("currency");
     let newCoin = currency.dataset.currency - bet;
-    let homeFighter = document.getElementById("checkBoxHome-"+id);
-    let awayFighter = document.getElementById("checkBoxAway-"+id);
-    let koefHome = document.getElementById("koefHome-"+id);
-    let koefAway = document.getElementById("koefAway-"+id);
-    let mainEv = document.getElementById("mainEv-"+id).getAttribute('data-mainEv');
+    let homeFighter = document.getElementById("checkBoxHome-" + id);
+    let awayFighter = document.getElementById("checkBoxAway-" + id);
+    let koefHome = document.getElementById("koefHome-" + id);
+    let koefAway = document.getElementById("koefAway-" + id);
+    let mainEv = document.getElementById("mainEv-" + id).getAttribute('data-mainEv');
     let fighter, koef;
-    //Alert Message if checkbox not checked and button pressed.
-    //Also checks if it has been checked afterwards if true inserts value into DB
-    if (homeFighter.getAttribute('data-checked') == 'true') {
+
+    // Alert Message if checkbox not checked and button pressed.
+    // Also checks if it has been checked afterward if true inserts value into DB
+    if (homeFighter.checked) {
         fighter = homeFighter.value;
         koef = koefHome.getAttribute('data-koef');
-    } else if (awayFighter.getAttribute('data-checked') == 'true') {
+    } else if (awayFighter.checked) {
         fighter = awayFighter.value;
         koef = koefAway.getAttribute('data-koef');
     } else {
@@ -66,23 +67,21 @@ function activateButton(id, bet) {
 
         return;
     }
+
     let event = homeFighter.getAttribute('data-event');
     currency.innerHTML = newCoin;
     currency.dataset.currency = newCoin;
-    // console.log("Home fighter "+homeFighter.value);
-    // console.log("Away fighter "+awayFighter.value);
-    // console.log("Koefficient "+koefHome.getAttribute('data-koef'));
-    // console.log("Koefficient "+koefAway.getAttribute('data-koef'));
-    //Jauna funkcija AJAX
+
+    // Jauna funkcija AJAX
     updCoin(bet, fighter, event, koef, mainEv);
-    // console.log(buttons);
-    //Styling for button if checked and unchecked
+
+    // Styling for button if checked and unchecked
     buttons.forEach(button => {
         button.disabled = true;
         if (button.classList.contains('active')) {
             button.classList.add('bg-[#e4c065]');
             button.classList.add('text-[#4E4E4E]');
-        }else {
+        } else {
             // Add red cross to disabled button
             button.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'px-4', 'py-2');
             button.innerHTML = '';
@@ -92,6 +91,25 @@ function activateButton(id, bet) {
         }
         document.getElementById('bet-' + id + '-' + bet).classList.add('active');
     });
+
+    // Show success message
+    const successMessage = document.createElement('div');
+    successMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4');
+    successMessage.innerHTML = `
+        <strong class="font-bold">Success!</strong>
+        <span class="block sm:inline">You have successfully placed a bet!</span>
+    `;
+    let alertContainer = document.getElementById('alert-container');
+    if (!alertContainer) {
+        alertContainer = document.createElement('div');
+        alertContainer.id = 'alert-container';
+        alertContainer.classList.add('fixed', 'top-4', 'right-4', 'z-50');
+        document.body.appendChild(alertContainer);
+    }
+    alertContainer.appendChild(successMessage);
+    setTimeout(() => {
+        successMessage.remove();
+    }, 5000);
 }
 //Forwards data to UpdateCurrency to insert into database
 function updCoin(newCoin, fighter, event, koef, mainEv) {
@@ -109,27 +127,4 @@ function updCoin(newCoin, fighter, event, koef, mainEv) {
     console.log('data='+data);
 }
 
-function disableButton(id){
-    let homeFighter = document.getElementById("checkBoxHome-"+id);
-    let awayFighter = document.getElementById("checkBoxAway-"+id);
-    const buttons = document.querySelectorAll('.currency-btn-' + id);
-
-
-
-    buttons.forEach(button => {
-        button.disabled = true;
-        if (button.classList.contains('active')) {
-            button.classList.add('bg-[#e4c065]');
-            button.classList.add('text-[#4E4E4E]');
-        }else {
-            // Add red cross to disabled button
-            button.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'px-4', 'py-2');
-            button.innerHTML = '';
-            let icon = document.createElement('i');
-            icon.classList.add('uil', 'uil-ban', 'text-red-500');
-            button.appendChild(icon);
-        }
-        document.getElementById('bet-' + id + '-' + bet).classList.add('active');
-    });
-}
 
