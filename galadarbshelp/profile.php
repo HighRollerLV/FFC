@@ -13,43 +13,43 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
         <div class="middleBox flex bg-white w-[100%] md:w-[65%] min-h-[91.8vh] drop-shadow-xl flex-row">
             <div class="leftBar flex flex-col w-[30%] md:w-[20%] min-h-[91.8vh] border-r-2 border-[#F9FAFA] bg-[#959595]">
                 <div class="w-[100%] h-[10vh] flex flex-col justify-center">
-                    <h1 class="bg-[#959595] border-b-2 border-[#F9FAFA] text-[#F9FAFA] h-[6vh] text-4xl font-bold pb-4 text-center">
+                    <h1 class="bg-[#959595] border-b-2 border-[#F9FAFA] text-[#F9FAFA] h-[6vh] text-2xl md:text-4xl font-bold pb-4 text-center">
                         Menu</h1>
                 </div>
                 <div class="w-[100%] h-[80vh] flex flex-col justify-center items-center">
                     <div id="accountContent" class="w-[100%]">
                         <button onclick="tabs(0)"
-                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-xl font-bold">
+                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-lg md:text-xl font-bold">
                             Account
                         </button>
                     </div>
                     <div id="addImage" class="w-[100%]">
                         <button onclick="tabs(1)"
-                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-xl font-bold">
+                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-lg md:text-xl font-bold">
                             Add Image
                         </button>
                     </div>
                     <div id="profileContent" class="w-[100%]">
                         <button onclick="tabs(2)"
-                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-xl font-bold">
+                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-lg md:text-xl font-bold">
                             Profile
                         </button>
                     </div>
                     <div id="changePass" class="w-[100%]">
                         <button onclick="tabs(3)"
-                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-xl font-bold">
+                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-lg md:text-xl font-bold">
                             Password
                         </button>
                     </div>
                     <div id="changeEmail" class="w-[100%]">
                         <button onclick="tabs(4)"
-                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-xl font-bold">
+                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-lg md:text-xl font-bold">
                             E-mail
                         </button>
                     </div>
                     <div id="deleteContent" class="w-[100%]">
                         <button onclick="tabs(5)"
-                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-xl font-bold">
+                                class="tabBtn bg-[#959595] hover:bg-[#e4c065] hover:border-y-2 hover:border-[#F9FAFA] text-[#F9FAFA] w-[100%] h-[10vh] text-lg md:text-xl font-bold">
                             Delete Account
                         </button>
                     </div>
@@ -68,19 +68,20 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                                     <p class="text-lg text-[#F9FAFA]">First Name</p>
                                     <input value="<?php echo $row["firstName"] ? ($row["firstName"]) : ""; ?>"
                                            name="firstName" type="text" placeholder="Enter your name"
-                                           class="btn rounded-full w-[99%] h-[2.5rem] outline-none p-2.5">
+                                           class="btn rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5">
                                 </div>
                                 <div class="lastnameInput">
                                     <p class="text-lg text-[#F9FAFA]">Last name</p>
                                     <input value="<?php echo $row["lastName"] ? ($row["lastName"]) : ""; ?>"
                                            name="lastName" type="text" placeholder="Enter your last name"
-                                           class="btn rounded-full w-[99%] h-[2.5rem] outline-none p-2.5">
+                                           class="btn rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5">
                                 </div>
                             </div>
                             <div class="leftItemsAcc flex flex-col gap-4">
                                 <div class="locationInput">
                                     <p class="text-lg text-[#F9FAFA]">Location</p>
-                                    <select name="location" class="btn rounded-full w-[99%] h-[2.5rem] outline-none p-2.5">
+                                    <select name="location"
+                                            class="btn rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5">
                                         <option value="">Select your location</option>
                                         <?php
                                         foreach ($countries as $country) {
@@ -94,17 +95,17 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                                     <p class="text-lg text-[#F9FAFA]">Age</p>
                                     <input value="<?php echo $row["age"] ? ($row["age"]) : ""; ?>" name="age"
                                            type="number" placeholder="Age"
-                                           class="btn rounded-full w-[99%] h-[2.5rem] outline-none p-2.5"
+                                           class="btn rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5"
                                            min="18" max="100">
                                 </div>
                             </div>
                         </div>
-                        <div class="bottomButtonAcc min-w-[100%]">
+                        <div class="bottomButtonAcc min-w-[100%] flex flex-col gap-8">
                             <button onclick="getValue('personalData.php', event, 'accForm', 1)"
                                     class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
                                 Done
                             </button>
-                            <p id="msg1"></p>
+                            <p id="msg1" class="text-lg text-[#F9FAFA]"></p>
                         </div>
                     </div>
                 </form>
@@ -125,14 +126,13 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                             hover:file:bg-[#e4c065] focus:border-primary focus:text-[#F9FAFA] focus:shadow-[0_0_0_1px]
                             focus:shadow-primary focus:outline-none">
                         </div>
-                        <div class="bottomButtonAcc min-w-[100%]">
-<!--                            <button onclick="getValue('getPicture.php', event, 'accImage', 2)" class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">-->
+                        <div class="bottomButtonAcc min-w-[100%] flex flex-col gap-8">
                             <button type="submit"
                                     name="submit"
                                     class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
-                            Add
+                                Add
                             </button>
-                            <p id="msg2"></p>
+                            <p id="msg2" class="text-lg text-[#F9FAFA]"></p>
                         </div>
                     </div>
                 </form>
@@ -144,29 +144,33 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                     <div class="items flex flex-col gap-16 ml-2 xl:m-0 justify-center items-center">
                         <div class="profilePicture flex flex-col justify-center items-center">
                             <img src="<?php +profilePic($conn); ?>"
-                                 class="w-36 h-36 rounded-full border-8 drop-shadow-2xl" alt="userImage">
+                                 class="w-40 h-40 rounded-full border-8 drop-shadow-2xl" alt="userImage">
                         </div>
-                        <div class="flex flex-col lg:flex-row gap-16 xl:gap-40">
-                            <div class="leftItemsAcc flex flex-col gap-6">
+                        <div class="flex flex-col lg:flex-row gap-8 md:gap-16 xl:gap-40">
+                            <div class="leftItemsAcc flex flex-col gap-4 md:gap-6">
                                 <div class="emailOutput">
-                                    <p class="text-xl text-white">Your e-mail: <?php email($conn); ?></p>
+                                    <p class="text-lg md:text-xl text-white">Your e-mail: <?php email($conn); ?></p>
                                 </div>
                                 <div class="nameOutput">
-                                    <p class="text-xl text-white">Your first name: <?php firstName($conn); ?></p>
+                                    <p class="text-lg md:text-xl text-white">Your first
+                                        name: <?php firstName($conn); ?></p>
                                 </div>
                                 <div class="locationOutput">
-                                    <p class="text-xl text-white">Your location: <?php location($conn); ?></p>
+                                    <p class="text-lg md:text-xl text-white">Your
+                                        location: <?php location($conn); ?></p>
                                 </div>
                             </div>
-                            <div class="rightItemsAcc flex flex-col gap-6">
+                            <div class="rightItemsAcc flex flex-col gap-4 md:gap-6">
                                 <div class="nickNameOutput">
-                                    <p class="text-xl text-white">Your nickname: <?php nickNameProfile($conn); ?></p>
+                                    <p class="text-lg md:text-xl text-white">Your
+                                        nickname: <?php nickNameProfile($conn); ?></p>
                                 </div>
                                 <div class="lastnameOutput">
-                                    <p class="text-xl text-white">Your last name: <?php lastName($conn); ?></p>
+                                    <p class="text-lg md:text-xl text-white">Your last
+                                        name: <?php lastName($conn); ?></p>
                                 </div>
                                 <div class="ageOutput">
-                                    <p class="text-xl text-white">Your age: <?php age($conn); ?></p>
+                                    <p class="text-lg md:text-xl text-white">Your age: <?php age($conn); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -182,20 +186,21 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                             <div class="flex flex-col gap-4">
                                 <p class="text-lg text-[#F9FAFA] text-left">Update password</p>
                                 <input name="oldPassword" type="password"
-                                       class="rounded-full w-[99%] h-[2.5rem] outline-none p-2.5"
+                                       class="rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5"
                                        placeholder="Old password">
                                 <input name="newPassword" type="password"
-                                       class="rounded-full w-[99%] h-[2.5rem] outline-none p-2.5"
+                                       class="rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5"
                                        placeholder="New password">
                                 <input name="checkPassword" type="password"
-                                       class="rounded-full w-[99%] h-[2.5rem] outline-none p-2.5"
+                                       class="rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5"
                                        placeholder="Repeat new password">
-                                <!--                                2-->
-                                <button onclick="getValue('updatePass.php', event, 'accPassword', 3)"
-                                        class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
-                                    Update
-                                </button>
-                                <p id="msg3"></p>
+                                <div class="bottomButtonAcc min-w-[100%] flex flex-col gap-8">
+                                    <button onclick="getValue('updatePass.php', event, 'accPassword', 3)"
+                                            class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
+                                        Update
+                                    </button>
+                                    <p id="msg3" class="text-lg text-[#F9FAFA]"></p>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -210,17 +215,18 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                             <div class="flex flex-col gap-4">
                                 <p class="text-lg text-[#F9FAFA] text-left">Update e-mail</p>
                                 <input name="oldEmail" type="email"
-                                       class="rounded-full w-[99%] h-[2.5rem] outline-none p-2.5"
+                                       class="rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5"
                                        placeholder="Old email">
                                 <input name="newEmail" type="email"
-                                       class="rounded-full w-[99%] h-[2.5rem] outline-none p-2.5"
+                                       class="rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5"
                                        placeholder="New email">
-                                <!--                                3-->
-                                <button onclick="getValue('updateData.php', event, 'accEmail', 4)"
-                                        class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
-                                    Update
-                                </button>
-                                <p id="msg4"></p>
+                                <div class="bottomButtonAcc min-w-[100%] flex flex-col gap-8">
+                                    <button onclick="getValue('updateData.php', event, 'accEmail', 4)"
+                                            class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
+                                        Update
+                                    </button>
+                                    <p id="msg4" class="text-lg text-[#F9FAFA]"></p>
+                                </div>
                             </div>
                         </form>
                     </div>
