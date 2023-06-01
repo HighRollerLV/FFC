@@ -20,6 +20,5 @@ if (empty($firstName) || empty($lastName) || empty($location) || empty($age)) {
     } else {
         $insertMsg = "Data has not been added! Try again!";
     }
-
-    $stmt->close();
 }
+echo $insertMsg;
