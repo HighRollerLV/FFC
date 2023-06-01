@@ -12,7 +12,7 @@ $age = $_POST['age'];
 $userID = userID();
 
 if (empty($firstName) || empty($lastName) || empty($location) || empty($age)) {
-    $insertMsg = "All fields must be complete";
+    $insertMsg = "All fields must be filled!";
 } else if ($age < 18) {
     $insertMsg = "You have to be 18 years old or older!";
 } else if (!in_array($location, $countries)) {

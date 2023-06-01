@@ -181,7 +181,7 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                     <div class="topTitle flex flex-col justify-center items-center gap-6">
                         <h1 class="text-2xl min-[425px]:text-3xl font-bold text-[#F9FAFA]">Change password</h1>
                     </div>
-                    <div class="flex flex-col lg:flex-row justify-center items-center gap-10">
+                    <div class="flex flex-col justify-center items-center gap-10">
                         <form id="accPassword">
                             <div class="flex flex-col gap-4">
                                 <p class="text-lg text-[#F9FAFA] text-left">Update password</p>
@@ -194,12 +194,14 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                                 <input name="checkPassword" type="password"
                                        class="rounded-full w-52 md:w-80 h-[2.5rem] outline-none p-2.5"
                                        placeholder="Repeat new password">
-                                <div class="bottomButtonAcc min-w-[100%] flex flex-col gap-8">
+                                <div class="bottomButtonAcc flex flex-col gap-8">
                                     <button onclick="getValue('updatePass.php', event, 'accPassword', 3)"
                                             class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
                                         Update
                                     </button>
-                                    <p id="msg3" class="text-lg text-[#F9FAFA]"></p>
+                                    <div class="h-10 w-56">
+                                        <p id="msg3" class="text-lg text-[#F9FAFA]"></p>
+                                    </div>
                                 </div>
                             </div>
                         </form>
