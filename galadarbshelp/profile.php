@@ -2,6 +2,7 @@
 $title = "Profile";
 include "includes/views/components/header.php";
 include "controllers/getPicture.php";
+include "models/countries.php";
 $sql = "SELECT * FROM loginhelp WHERE id = '$userID'";
 $results = select($sql, $conn);
 $row = $results->fetch_array(MYSQLI_ASSOC);
@@ -79,9 +80,15 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                             <div class="leftItemsAcc flex flex-col gap-4">
                                 <div class="locationInput">
                                     <p class="text-lg text-[#F9FAFA]">Location</p>
-                                    <input value="<?php echo $row["location"] ? ($row["location"]) : ""; ?>"
-                                           name="location" type="text" placeholder="Enter your location"
-                                           class="btn rounded-full w-[99%] h-[2.5rem] outline-none p-2.5">
+                                    <select name="location" class="btn rounded-full w-[99%] h-[2.5rem] outline-none p-2.5">
+                                        <option value="">Select your location</option>
+                                        <?php
+                                        foreach ($countries as $country) {
+                                            $selected = $row["location"] === $country ? "selected" : "";
+                                            echo "<option value='$country' $selected>$country</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="ageInput">
                                     <p class="text-lg text-[#F9FAFA]">Age</p>
