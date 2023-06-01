@@ -1,0 +1,580 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+html {
+    font-family: 'Oswald', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.z-index {
+    z-index: 100;
+}
+
+.z--index {
+    z-index: 1;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-36 {
+    width: 36%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.f-100 {
+    display: flex;
+    flex: 100%;
+}
+
+.f-80 {
+    flex: 80%;
+}
+
+.f-50 {
+    flex: 50%;
+}
+
+.f-33 {
+    flex: 33%;
+}
+
+.f-25 {
+    flex: 25%;
+}
+
+.f-20 {
+    flex: 20%;
+}
+
+.vh-100 {
+    min-height: 100vh;
+}
+
+.vh-60 {
+    min-height: 60vh;
+}
+
+.vh-50 {
+    min-height: 50vh;
+}
+
+.vh-40 {
+    min-height: 40vh;
+}
+
+.vh-20 {
+    min-height: 20vh;
+}
+
+.vh-10 {
+    min-height: 10vh;
+}
+
+.br-50 {
+    border-radius: 50%;
+}
+
+.g-100 {
+    gap: 100px;
+}
+
+.g-50 {
+    gap: 50px;
+}
+
+.g-20 {
+    gap: 20px;
+}
+
+.g-10 {
+    gap: 10px;
+}
+
+.m--10 {
+    margin-bottom: -10px;
+}
+
+.m-top-120 {
+    margin-top: 120px;
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+.space-around{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-start {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-end {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.t-align {
+    text-align: center;
+}
+
+.t-align-l {
+    text-align: left;
+    justify-content: center;
+}
+
+.t-align-r {
+    text-align: right;
+    justify-content: center;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.bc-white {
+    background-color: #FFFFFF;
+}
+
+.bc-orangeL {
+    background-color: #FFCB66;
+}
+
+.bc-orange {
+    background-color: #FFA800;
+}
+
+.bc-gray {
+    background-color: #2F4858;
+}
+
+.c-white {
+    color: #FFFFFF;
+}
+
+.c-black {
+    color: #060606;
+}
+
+.c-gray {
+    color: #2F4858;
+}
+
+.c-orange {
+    color: #FFA800;
+}
+
+.fs-30  {
+    font-size: 30px;
+}
+
+.fs-25 {
+    font-size: 25px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fw-b {
+    font-weight: bold;
+}
+
+.text-d {
+    text-decoration: none;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.menuText:hover {
+    text-decoration-line: underline;
+    text-decoration-color: #FFA800;
+    text-decoration-thickness: 4px;
+    text-underline-position: under;
+    text-underline-offset: 8px;
+}
+
+.sparkleVideo {
+    background: url(images/sparkleVideo.svg);
+    background-size: cover;
+    background-position: center;
+}
+
+.play-button-outer {
+    width: 6em;
+    height: 6em;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.play-button {
+    margin: 0 auto;
+    top: 28%;
+    left: 5%;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1.2em 0 1.2em 2.2em;
+    border-color: transparent transparent transparent #FFFFFF;
+    border-radius: 5px;
+}
+
+.play-button-outer:hover {
+    background-color: #FFFFFF;
+    border: 5px solid #FFA800;
+}
+
+.play-button:hover {
+    border-color: transparent transparent transparent #FFA800;
+    border-width: 1.2em 0 1.2em 2.2em;
+}
+
+.alignSize {
+    flex: 25%;
+    max-height: 50vh;
+    min-height: 50vh;
+}
+
+.fullsize {
+    width: 100%;
+    height: 100%;
+}
+
+.halfsize {
+    flex: 100%;
+    height: 50%;
+}
+
+.buttonTitle {
+    font-size: 24px;
+    text-align: center;
+}
+
+.buttonText {
+    border: none;
+    border-radius: 50px;
+    width: 250px;
+    height: 50px;
+}
+
+.buttonText:hover {
+    border: 5px solid #FFA800;
+    background-color: #FFFFFF;
+    color: #FFA800;
+}
+
+.contactBoxTitle {
+    font-size: 30px;
+}
+
+.inputsNameEmail {
+    background: rgba(196, 196, 196, 0.4);
+    border: none;
+    border-radius: 6px;
+    width: 21em;
+    height: 4.5vh;
+    outline: 0;
+    text-align: left;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.inputsNameEmail::placeholder {
+    color: #2F4858;
+    font-size: 18px;
+}
+
+.inputsPhone {
+    background: rgba(196, 196, 196, 0.4);
+    border: none;
+    border-radius: 6px;
+    width: 43em;
+    height: 4.5vh;
+    outline: 0;
+    text-align: left;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.inputsPhone::placeholder {
+    color: #2F4858;
+    font-size: 18px;
+}
+
+.inputsQuetion {
+    background: rgba(196, 196, 196, 0.4);
+    border: none;
+    border-radius: 6px;
+    width: 43em;
+    height: 25.5vh;
+    outline: 0;
+    text-align: left;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.inputsQuetion::placeholder {
+    color: #2F4858;
+    font-size: 19px;
+}
+
+.contactBoxTextL {
+    width: 25%;
+}
+
+.agreeTerms {
+    width: 48em;
+}
+.checkBoxHolder {
+    width: 60%
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #E7E7E7;
+    border: none;
+    border-radius: 3px; 
+}
+
+input[type="checkbox"]:checked {
+    background: #E7E7E7;
+    border: none;
+    border-radius: 2px;
+    position: relative;
+}
+
+input[type="checkbox"]:checked:after {
+    content: "\2713";
+    color: #2F4858;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.buttonSend {
+    font-size: 24px;
+    border: none;
+    border-radius: 50px;
+    width: 190px;
+    height: 65px;
+}
+
+.buttonSend:hover {
+    border: 5px solid #FFA800;
+    background-color: #FFFFFF;
+    color: #FFA800;
+}
+
+.logos {
+    text-align: center;
+}
+
+.rightsReserved {
+    width: 55%;
+}
+
+.iconBox {
+    justify-content: flex-end;
+}
+
+*.icon-style {
+    cursor: pointer;
+    font-size: 50px;
+    margin: 10px 5px 5px 0;
+}
+
+*.icon-style:hover {
+    color: #FFCB66;
+}
+
+.header-padding {
+    padding-left: 5px;
+    padding-right: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.flex-start-H{
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.ripped-bottom {
+    margin: -75px 0 0 0;
+}
+
+.m-top-80 {
+    margin-top: 80px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+@media only screen and (max-width: 1890px) {
+
+    .ripped-bottom {
+        margin: -48px 0 0 0;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .sparkieText {
+        width: 50%;
+    }
+    .ripped-bottom {
+        margin: -30px 0 0 0;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+
+    .menu,
+    .menuLinks {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 775px) {
+
+    .inputsPhone,
+    .inputsQuetion {
+        width: 21em;
+    }
+    .sparkieText {
+        width: 60%;
+    }
+    .ripped-bottom {
+        display: none;
+    }
+    .agreeTerms {
+        width: 23em;
+    }
+    .checkBoxHolder {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 432px) {
+
+    .ripped {
+        display: none;
+    }
+    .sparkieText {
+        width: 80%;
+    }
+    .menuTextB,
+    .informationText,
+    .rightsReserved {
+        font-size: 8px;
+    }
+    .informationBoldText {
+        font-size: 12px;
+    }
+    *.icon-style {
+        font-size: 20px;
+    }
+    .linksContainer,
+    .bankInformation,
+    .contactContainer {
+        gap: 5px;
+    }
+    .goldenLogo {
+        width: 80px;
+        height: 80px;
+    }
+    .rightsReserved {
+        margin-top: 20px
+    }
+}
+
+
+@media only screen and (max-width: 340px) {
+
+    .sparkieText {
+        width: 100%;
+    }
+    .inputsNameEmail {
+        width: 16em;
+    }
+    .inputsPhone,
+    .inputsQuetion {
+        width: 16em;
+    }
+    .agreeTerms {
+        width: 18em;
+    }
+    .checkBoxHolder {
+        width: 100%;
+    }
+}

@@ -1,0 +1,304 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.container {
+    background: #F5F5F5;
+    min-height: 100vh;
+}
+.darktext select {
+    color: #333C43;
+}
+.graytext {
+    color: #70777B;
+}
+.row, .row2 {
+    display: flex;
+    flex-direction: row;
+}
+@media (max-width: 700px) {
+    .row2 {
+        flex-direction: column;
+    }
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}
+.center {
+    justify-content: center;
+    align-items: center;
+}
+.logo_title {
+    font-size: 45px;
+    color: #333C43
+}
+.linesText {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #70777B;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 32px 890px 0px 0px;
+}
+.greenLine {
+    width: 179.8px;
+    height: 5px;
+    background: #5FB92A;
+    border-radius: 2px;
+    margin: 8px 10px 6px 0px;
+}
+.greyLine {
+    width: 179.8px;
+    height: 5px;
+    background: #C2C5C7;
+    border-radius: 2px;
+    margin: 8px 10px 6px 0px;
+}
+.box {
+    font-weight: bold;
+    width: 950px;
+    height: 602px;
+    background: #FFFFFF;
+}
+.descriptions {
+    text-align: center;
+    padding: 120px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 70px;
+}
+.description1 {
+    height: 92px;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 46px;
+    color: #333C43;
+}
+.description2 {
+    height: 60px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #333C43;
+}
+input[type="checkbox"] {
+    appearance: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 1px solid #999DA1;
+    border-radius: 2px; 
+}
+input[type="checkbox"]:checked {
+    background: #4EA819;
+    border: 1px solid #43762B;
+    border-radius: 2px;
+    position: relative;
+}
+input[type="checkbox"]:checked:after {
+    content: "\2713";
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.selectAll-option {
+    margin-left: 4px;
+}
+.selectAllText {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 124%;
+    text-transform: uppercase;
+    color: #4EA819;
+}
+.inputs div {
+    margin: 8px 4px;
+}
+.inputBox {
+    width: 250px;
+    height: 36px;
+}
+input {
+    width: 100%;
+    width: 250px;
+    margin: 4px;
+    height: 36px;
+    padding: 10px;
+    background: #FFFFFF;    
+    border: 1px solid #999DA1;
+    border-radius: 2px;
+    outline: none;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 20px;
+    color: #70777B;
+    box-sizing: border-box;
+}
+.selectBox {
+    width: 169px;
+    height: 36px;
+    margin: 4px;
+}
+.selectBox select {
+    width: 100%;
+    padding: 10px;
+    background: #FFFFFF;    
+    border: 1px solid #999DA1;
+    border-radius: 2px;
+    outline: none;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 20px;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+.inp-group {
+    width: 900px;
+}
+.add {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #4EA819;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-right: 306px;
+}
+.importButtonsText {
+    color: #475056;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    margin-left: 8px;
+}
+.slackButton {
+    width: 91px;
+    height: 40px;
+    outline: none;
+    color: #475056;
+    background: #FFFFFF;
+    border: 1px solid #999DA1;
+    border-radius: 3px;
+    padding: 14px 32px;
+    box-sizing: border-box;
+    order: 0;
+    flex-grow: 0;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px; 
+    text-decoration: none;
+    outline: none;
+    order: 0;
+    margin-left: 8px;
+}
+.gmailButton {
+    width: 91px;
+    height: 40px;
+    outline: none;
+    color: #475056;
+    background: #FFFFFF;
+    border: 1px solid #999DA1;
+    border-radius: 3px;
+    padding: 14px 32px;
+    box-sizing: border-box;
+    order: 0;
+    flex-grow: 0;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px; 
+    text-decoration: none;
+    outline: none;
+    order: 0;
+    margin-left: 8px;
+}
+.csvButton {
+    width: 75px;
+    height: 40px;
+    outline: none;
+    color: #475056;
+    background: #FFFFFF;
+    border: 1px solid #999DA1;
+    border-radius: 3px;
+    padding: 14px 32px;
+    box-sizing: border-box;
+    order: 0;
+    flex-grow: 0;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: none;
+    outline: none;
+    order: 1;
+    margin-left: 8px;
+}
+.buttons {
+    margin-top: 32px;
+    margin-left: 568px;
+}
+.skip_button {
+    width: 105px;
+    height: 48px;
+    outline: none;
+    color: #475056;
+    background: #FFFFFF;
+    border: 1px solid #999DA1;
+    border-radius: 3px;
+    padding: 14px 32px;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    order: 0;
+    flex-grow: 0;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    margin-right: 24px;
+}
+.email_button {
+    width: 168px;
+    height: 48px;
+    outline: none;
+    gap: 10px;
+    background: #4EA819;
+    opacity: 0.5;
+    border: 1px solid #43762B;
+    border-radius: 3px;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    order: 0;
+    flex-grow: 0;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+}

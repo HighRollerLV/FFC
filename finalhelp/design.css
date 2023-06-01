@@ -1,0 +1,219 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.m-10 {
+    margin: 10px;
+}
+
+.g-10 {
+    gap: 10px;
+}
+
+.m-6 {
+    margin: 6px;
+}
+
+.gap15 {
+    gap: 15px;
+}
+
+.br-50 {
+    border-radius: 50%;
+}
+
+.font-L {
+    font-size: 14px;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
+
+.purple {
+    background-color: #9370DB;
+}
+
+.black {
+    background-color: black;
+}
+
+.green {
+    background-color: #90EE90;
+}
+
+.red {
+    background-color: #CD5C5C;
+}
+
+.border {
+    border: 2px solid #696969;
+}
+
+.blue {
+    background-color: #1E90FF;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.f-100 {
+    flex: 100%;
+}
+
+.f-98 {
+    flex: 98%;
+}
+
+.f-90 {
+    flex: 90%;
+}
+
+.f-70 {
+    flex: 70%;
+}
+
+.f-50 {
+    flex: 50%;
+}
+
+.f-48 {
+    flex: 48%;
+}
+
+.f-30 {
+    flex: 30%;
+}
+
+.space-around{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flex-start {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-end {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.c-Holder {
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1024px;
+}
+
+.containerLeft {
+    margin: 0 0 12px 0;
+}
+
+.leftTopBox {
+    height: 30vh;
+    margin: 10px 0 0 0;
+    width: 90%;
+}
+
+.SquareM {
+    height: 100px;
+    width: 100px;
+}
+
+.CircleM {
+    height: 35px;
+    width: 35px;
+}
+
+.CircleXM {
+    height: 60px;
+    width: 60px;
+}
+
+.CircleXL {
+    height: 85px;
+    width: 85px;
+}
+
+.CircleXXL {
+    height: 190px;
+    width: 190px;
+}
+
+.SquareL {
+    height: 200px;
+    width: 250px;
+}
+
+.SquareXL {
+    height: 360px;
+    width: 250px;
+}
+
+.SquareXM {
+    height: 60px;
+    width: 60px;
+}
+
+.SquareS {
+    height: 35px;
+    width: 35px;
+}
+
+.SquareXS {
+    height: 25px;
+    width: 25px;
+}
+
+.leftBottomBox {
+    height: 65vh;
+    width: 90%;
+}
+
+.rightTopBox {
+    height: 30vh;
+    width: 98%;
+}
+
+.rightMiddleBox {
+    height: 31vh;
+    width: 98%;
+}
+
+.rightBottomBox {
+    height: 32.5vh;
+    width: 48%;
+}
+
+.SquareXXXL {
+    width: 90%;
+    height: 150px;
+}
+.SquareXXL {
+    width: 90%;
+    height: 100px;
+}

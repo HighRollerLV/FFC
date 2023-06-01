@@ -1,0 +1,353 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+html {
+    font-family: 'Oswald', sans-serif;
+    scroll-behavior: smooth;
+}
+.z-index {
+    z-index: 100;
+}
+.c-w-100 {
+    width: 100%;
+}
+.w-100 {
+    flex: 100%;
+}
+.w-50 {
+    flex: 50%;
+}
+.w-25 {
+    flex: 25%;
+}
+.h-500 {
+    height: 500px;
+}
+.vh-100 {
+    min-height: 100vh;
+}
+.vh-50 {
+    min-height: 50vh;
+}
+.vh-75 {
+    min-height: 75vh;
+}
+.vh-35 {
+    min-height: 35vh;
+}
+.bc-white {
+    background-color: #FFFFFF;
+}
+.bc-orangeL {
+    background-color: #FFCB66;
+}
+.bc-orange {
+    background-color: #FFA800;
+}
+.bc-gray {
+    background-color: #2F4858;
+}
+.c-white {
+    color: #FFFFFF;
+}
+.c-black {
+    color: #060606;
+}
+.c-gray {
+    color: #2F4858;
+}
+.f-18 {
+    font-size: 18px;
+}
+.hidden {
+    overflow: hidden;
+}
+.text-d {
+    text-decoration: none;
+}
+.absolute {
+    position: absolute;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}
+.center {
+    align-items: center;
+    justify-content: center;
+}
+.textright {
+    text-align: right;
+}
+.textleft {
+    text-align: left;
+}
+.end {
+    justify-content: flex-end;
+    align-items: center;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.header {
+    height: 12vh;
+    position: fixed;
+    top: 0;
+}
+.logo {
+    width: 140px;
+    height: 120px;
+    margin-right: 150px;
+}
+.menuText {
+    margin: 0 16px;
+    font-size: 20px;
+    line-height: 22px;
+}
+.lvMargin {
+    margin-left: 50px;
+}
+.ripped {
+    margin-top: -20px;
+}
+.sparkleVideo {
+    background: url(images/sparkleVideo.svg);
+    background-size: cover;
+    background-position: center;
+}
+.play-button-outer {
+    width: 6em;
+    height: 6em;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+.play-button {
+    margin: 0 auto;
+    top: 28%;
+    left: 5%;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1.2em 0 1.2em 2.2em;
+    border-color: transparent transparent transparent #FFFFFF;
+    border-radius: 5px;
+}
+.sparkieHeartText {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    padding: 550px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.buttonTitle {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    margin: 0 100px;
+}
+.buttonText {
+    font-weight: bold;
+    line-height: 22px;
+    margin: 50px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    width: 250px;
+    height: 50px;
+}
+.contactBoxTitle {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 44px;
+    margin: 0 0 50px 0 ;
+}
+.inputsNameEmail {
+    font-family: 'Montserrat';
+    background: rgba(196, 196, 196, 0.4);
+    border: none;
+    border-radius: 6px;
+    width: 350px;
+    height: 45px;
+    margin: 0 5px 0 5px;
+    outline: 0;
+    text-align: left;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+.inputsNameEmail::placeholder {
+    color: #2F4858;
+    font-size: 18px;
+}
+.inputsPhone {
+    font-family: 'Montserrat';
+    background: rgba(196, 196, 196, 0.4);
+    border: none;
+    border-radius: 6px;
+    width: 720px;
+    height: 45px;
+    margin: 12px 0 0 0;
+    outline: 0;
+    text-align: left;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+.inputsPhone::placeholder {
+    font-family: 'Montserrat';
+    color: #2F4858;
+    font-size: 18px;
+}
+.inputsQuetion {
+    font-family: 'Montserrat';
+    background: rgba(196, 196, 196, 0.4);
+    border: none;
+    border-radius: 6px;
+    width: 720px;
+    height: 250px;
+    margin: 12px 0 0 0;
+    outline: 0;
+    text-align: left;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+.inputsQuetion::placeholder {
+    font-family: 'Montserrat';
+    color: #2F4858;
+    font-size: 19px;
+}
+.contactBoxText {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 17px;
+    margin: 15px 0px 25px 0;
+    align-items: left;
+    width: 720px;
+}
+.agreeTerms {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+input[type="checkbox"] {
+    appearance: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #E7E7E7;
+    border: none;
+    border-radius: 3px; 
+}
+input[type="checkbox"]:checked {
+    background: #E7E7E7;
+    border: none;
+    border-radius: 2px;
+    position: relative;
+}
+input[type="checkbox"]:checked:after {
+    content: "\2713";
+    color: #2F4858;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.checkBoxHolder {
+    align-items: left;
+    width: 705px;
+    height: 40px;
+}
+.checkboxText {
+    margin: 0px 0px 0px 15px;
+}
+.buttonSend {
+    font-size: 24px;
+    line-height: 22px;
+    margin: 50px 0px 0px 0;
+    border: none;
+    border-radius: 50px;
+    width: 190px;
+    height: 65px;
+    cursor: pointer;
+}
+.supportersTitle {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    margin: 0 0 100px 0;
+}
+.logos {
+    gap: 100px;
+    flex: 100%;
+}
+.footer {
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+}
+.footerLinks {
+    gap: 20px;
+}
+.bankInformation {
+    gap: 20px;
+}
+.contactInfo {
+    gap: 10px;
+}
+.rightsText {
+    margin: 70px 0 0 0;
+}
+.rightsReserved {
+    font-family: 'Montserrat';
+    line-height: 17px;
+    height: 38px;
+    width: 200px;
+}
+.footerText {
+    font-family: 'Montserrat';
+    font-size: 22px;
+    line-height: 22px;
+    width: 38%;
+}
+.informationBoldText {
+    font-family: 'Montserrat';
+    font-size: 28px;
+    line-height: 29px;
+}
+.informationText {
+    font-family: 'Montserrat';
+    font-size: 22px;
+    line-height: 22px;
+}
+.iconBox {
+    justify-content: flex-end;
+}
+*.icon-style {
+    cursor: pointer;
+    font-size: 50px;
+    margin: 10px 5px 5px 0;
+}
+.informationSmallText {
+    font-family: 'Montserrat';
+    font-style: normal;
+    line-height: 17px;
+}
