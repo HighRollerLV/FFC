@@ -105,7 +105,9 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                                     class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
                                 Done
                             </button>
-                            <p id="msg1" class="text-lg text-[#F9FAFA]"></p>
+                            <div class="h-10 w-56">
+                                <p id="msg1" class="text-lg text-[#F9FAFA]"></p>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -227,7 +229,9 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                                             class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[12vh] h-[4rem] font-bold">
                                         Update
                                     </button>
-                                    <p id="msg4" class="text-lg text-[#F9FAFA]"></p>
+                                    <div class="h-10 w-56">
+                                        <p id="msg4" class="text-lg text-[#F9FAFA]"></p>
+                                    </div>
                                 </div>
                             </div>
                         </form>
