@@ -60,7 +60,7 @@ if ($result->num_rows === 0) {
             $method = ucwords(str_replace('_', ' ', $row2['method']));
 
             echo '
-                <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex-shrink-0">
+                <div class="flex flex-col bg-[#606060] drop-shadow-xl rounded-lg shadow-md p-4 mb-4 text-[#e4c065] w-72 h-80">
                     <p class="text-xl font-bold mb-2">Fighter: ' . $fighterName . '</p>
                     <p class="text-lg">Bet Amount: $' . $betAmount . '</p>
                     <p class="text-lg">Outcome: ' . $outcome . '</p>
