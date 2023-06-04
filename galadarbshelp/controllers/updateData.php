@@ -22,7 +22,7 @@ if (empty($oldEmail) || empty($newEmail)) {
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
-        $insertMsg = "The new email already exists in the database. Please enter a different email.";
+        $insertMsg = "This email already exists. Please enter a different email.";
     } else {
         // Check if the old email matches the current email for the user
         $sql = "SELECT email FROM loginhelp WHERE id = ?";
