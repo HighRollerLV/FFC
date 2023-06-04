@@ -9,7 +9,7 @@ include "includes/views/components/header.php";
 //    echo '</pre>';
 ?>
     <main class="pt-[5rem]">
-        <div class="content w-full min-h-screen flex flex-col justify-center items-center pt-32">
+        <div class="content w-full min-h-screen flex flex-row justify-center items-center gap-4 flex-wrap">
             <?php include "controllers/getMoney.php"; ?>
         </div>
     </main>

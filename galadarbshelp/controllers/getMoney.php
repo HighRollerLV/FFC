@@ -6,12 +6,13 @@ $stmt->bind_param("i", $userID);
 $stmt->execute();
 $result = $stmt->get_result();
 
-
 if ($result->num_rows === 0) {
     echo '
     <h1 class="text-2xl font-bold">You currently have no active bets</h1>
     ';
 } else {
+    $hasResultsThisWeek = false;
+
     while ($row = $result->fetch_assoc()) {
         $fighterId = $row['FighterId'];
         $betAmount = $row['BetAmount'];
@@ -26,16 +27,16 @@ if ($result->num_rows === 0) {
         $figId = $fighterNameResult['fig_id'];
         $fighterNameStmt->close();
 
-
-        $result2 = $conn->prepare("SELECT * FROM ufcResults WHERE eventId = ? AND singleEventId = ?");
+        $result2 = $conn->prepare("SELECT * FROM ufcResults WHERE eventId = ? AND singleEventId = ? AND `date` >= CURDATE() - INTERVAL 6 DAY AND `date` <= CURDATE()");
         $result2->bind_param("ii", $mainEv, $row['SingleEventId']);
         $result2->execute();
         $result2 = $result2->get_result();
 
-        while ($row2 = $result2->fetch_assoc()) {
+        if ($result2->num_rows > 0) {
+            $hasResultsThisWeek = true;
+            $row2 = $result2->fetch_assoc();
+            $fightWinner = $row2['fightWinner'];
             $calculate = intval($koef * $betAmount / 20);
-//            echo "<h1>".$row2['fightWinner']. "</h1>";
-
 
             if ($row['paid'] == 0) {
                 $updateStmt = $conn->prepare("UPDATE loginhelp SET currency = currency + ? WHERE id = ?");
@@ -51,20 +52,34 @@ if ($result->num_rows === 0) {
                 }
             }
 
-            $outcome = ($calculate > 0) ? 'Won' : 'Lost';
+            $outcome = ($fightWinner == $figId) ? 'Won' : 'Lost';
             $amountReceived = abs($calculate);
+            $fightRounds = $row2['fightRounds'];
+            $finalRound = $row2['finalRound'];
+            $finalMinute = $row2['finalMinute'];
+            $method = ucwords(str_replace('_', ' ', $row2['method']));
 
             echo '
-            <div class="bg-white rounded-lg shadow-md p-4 mb-4">
-                <p class="text-xl font-bold mb-2">Fighter: ' . $fighterName . '</p>
-                <p class="text-lg">Bet Amount: $' . $betAmount . '</p>
-                <p class="text-lg">Outcome: ' . $outcome . '</p>
-                <p class="text-lg">Amount Received: $' . $amountReceived . '</p>
-            </div>
-            ';
+                <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex-shrink-0">
+                    <p class="text-xl font-bold mb-2">Fighter: ' . $fighterName . '</p>
+                    <p class="text-lg">Bet Amount: $' . $betAmount . '</p>
+                    <p class="text-lg">Outcome: ' . $outcome . '</p>
+                    <p class="text-lg">Amount Received: $' . $amountReceived . '</p>
+                    <p class="text-lg">Fight Rounds: ' . $fightRounds . '</p>
+                    <p class="text-lg">Final Round: ' . $finalRound . '</p>
+                    <p class="text-lg">Final Minute: ' . $finalMinute . '</p>
+                    <p class="text-lg">Method: ' . $method . '</p>
+                </div>
+                ';
         }
 
         $result2->free_result();
+    }
+
+    if (!$hasResultsThisWeek) {
+        echo '
+        <h1 class="text-2xl font-bold">No bets have been made this week</h1>
+        ';
     }
 }
 
