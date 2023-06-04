@@ -1,12 +1,12 @@
 <?php
 
 
-$event = "SELECT * FROM UFC_Single_Event
-WHERE eventDate >= CURDATE() AND eventDate <= DATE_ADD(CURDATE(), INTERVAL 8 DAY)
-ORDER BY id DESC";
 //$event = "SELECT * FROM UFC_Single_Event
-//WHERE eventDate >= DATE_SUB(CURDATE(), INTERVAL 20 DAY) AND eventDate <= CURDATE()
+//WHERE eventDate >= CURDATE() AND eventDate <= DATE_ADD(CURDATE(), INTERVAL 8 DAY)
 //ORDER BY id DESC";
+$event = "SELECT * FROM UFC_Single_Event
+WHERE eventDate >= DATE_SUB(CURDATE(), INTERVAL 20 DAY) AND eventDate <= CURDATE()
+ORDER BY id DESC";
 $stmt = $conn->prepare($event);
 
 // Check if the statement preparation was successful

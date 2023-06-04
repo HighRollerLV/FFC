@@ -6,13 +6,12 @@ $stmt->bind_param("i", $userID);
 $stmt->execute();
 $result = $stmt->get_result();
 
+
 if ($result->num_rows === 0) {
     echo '
     <h1 class="text-2xl font-bold">You currently have no active bets</h1>
     ';
 } else {
-    $hasResultsThisWeek = false;
-
     while ($row = $result->fetch_assoc()) {
         $fighterId = $row['FighterId'];
         $betAmount = $row['BetAmount'];
@@ -27,14 +26,16 @@ if ($result->num_rows === 0) {
         $figId = $fighterNameResult['fig_id'];
         $fighterNameStmt->close();
 
-        $result2 = $conn->prepare("SELECT * FROM ufcResults WHERE eventId = ? AND singleEventId = ? AND `date` >= CURDATE() - INTERVAL DAYOFWEEK(CURDATE())-1 DAY AND `date` < CURDATE() + INTERVAL 7-DAYOFWEEK(CURDATE()) DAY");
+
+        $result2 = $conn->prepare("SELECT * FROM ufcResults WHERE eventId = ? AND singleEventId = ?");
         $result2->bind_param("ii", $mainEv, $row['SingleEventId']);
         $result2->execute();
         $result2 = $result2->get_result();
 
         while ($row2 = $result2->fetch_assoc()) {
-            $hasResultsThisWeek = true;
             $calculate = intval($koef * $betAmount / 20);
+//            echo "<h1>".$row2['fightWinner']. "</h1>";
+
 
             if ($row['paid'] == 0) {
                 $updateStmt = $conn->prepare("UPDATE loginhelp SET currency = currency + ? WHERE id = ?");
@@ -64,12 +65,6 @@ if ($result->num_rows === 0) {
         }
 
         $result2->free_result();
-    }
-
-    if (!$hasResultsThisWeek) {
-        echo '
-        <h1 class="text-2xl font-bold">No bets have been made this week</h1>
-        ';
     }
 }
 
