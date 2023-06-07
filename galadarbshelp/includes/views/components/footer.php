@@ -1,6 +1,9 @@
+<!--Līnija, kas atdala kājenes saturu no pārējās lapas-->
 <div class="whiteLine w-full bg-white h-[5px] my-6"></div>
+<!--Kājenes satura sākums-->
 <footer class="w-full h-[25vh] flex flex-row">
     <div class="flex-wrap flex flex-row w-[100%] h-[15vh] pt-16">
+        <!--        Ikonas un vietnes logotips-->
         <div class="media flex flex-col w-[15%] h-[15vh] text-left gap-12">
             <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/index.php"
                class="w-[100%] md:w-[70%] lg:w-[50%] xl:w-[30%]"><img src="includes/images/FFCblack.png"></a>
@@ -11,6 +14,7 @@
                 <a href="#"><i class="uil uil-discord text-2xl hover:text-[#e4c065]"></i></a>
             </div>
         </div>
+        <!--        Saites uz citām lapām-->
         <div class="support flex flex-col w-[25%]  text-left text-[#F9FAFA]">
             <a href="#"
                class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[21%] hover:transition duration-300 ease-out hover:scale-110">Contact
@@ -20,6 +24,7 @@
             <a href="#"
                class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[9%] hover:transition duration-300 ease-out hover:scale-110">Q&A</a>
         </div>
+        <!--        Apakšējā navigācijas josla -->
         <div class="ffcLinks flex flex-col w-[20%]  text-left text-[#F9FAFA]">
             <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/index.php"
                class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[10%] hover:transition duration-300 ease-out hover:scale-110">Home</a>
@@ -34,6 +39,7 @@
             <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/profile.php"
                class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[10%] hover:transition duration-300 ease-out hover:scale-110">Profile</a>
         </div>
+        <!--        Pieslēgšanās priekš atjauninājumiem-->
         <div class="updateSignup flex flex-col w-[35%] text-left">
             <p class="text-[#F9FAFA] text-lg md:text-xl">Sign up for Updates</p>
             <input type="text" class="w-[100%] xl:w-[40%] lg:w-[60%] sm:w-[80%] outline-none"

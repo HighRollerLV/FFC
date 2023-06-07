@@ -1,33 +1,42 @@
+// Izvēles rūtiņu funkcija, kas pārbauda vai ir atzīmēta tikai viena rūtiņa.
+// Ja ir atzīmēta vairāk, tad atzīmētā rūtiņa noņemas una atzīmē uzspiesto.
 function toggleCheckboxes(checkBoxHome, checkBoxAway, id) {
+    // Iegūtie dati no atzīmētās rūtiņas
     const homeBox = document.getElementById('checkBoxHome-' + id);
     const awayBox = document.getElementById('checkBoxAway-' + id);
     // console.log(homeBox);
     // console.log(awayBox);
-
+    // Pārbauda vai ir atzīmēta rūtiņa
     homeBox.addEventListener('change', function () {
+        // Ja ir atzīmēta, tad noņem atzīmi no otrās rūtiņas
         if (homeBox.checked) {
             awayBox.checked = false;
             homeBox.setAttribute('data-checked', 'true');
             awayBox.setAttribute('data-checked', 'false');
         } else {
+            // Ja nav atzīmēta, tad noņem atzīmi no abām rūtiņām
             homeBox.setAttribute('data-checked', 'false');
             awayBox.setAttribute('data-checked', 'false');
         }
     });
-
+    //Pārbauda vai ir atzīmēta rūtiņa
     awayBox.addEventListener('change', function () {
+        // Ja ir atzīmēta, tad noņem atzīmi no otrās rūtiņas
         if (awayBox.checked) {
             homeBox.checked = false;
             awayBox.setAttribute('data-checked', 'true');
             homeBox.setAttribute('data-checked', 'false');
         } else {
+            // Ja nav atzīmēta, tad noņem atzīmi no abām rūtiņām
             homeBox.setAttribute('data-checked', 'false');
             awayBox.setAttribute('data-checked', 'false');
         }
     });
 }
 
+// Pogu aktivizēšanas funkcija un informācijas iegūšana par likmi
 function activateButton(id, bet) {
+    // Mainīgie un iegūtie dati
     const buttons = document.querySelectorAll('.currency-btn-' + id);
     let currency = document.getElementById("currency");
     let newCoin = currency.dataset.currency - bet;
@@ -38,8 +47,9 @@ function activateButton(id, bet) {
     let mainEv = document.getElementById("mainEv-" + id).getAttribute('data-mainEv');
     let fighter, koef;
 
-    // Alert Message if checkbox not checked and button pressed.
+    // Paziņojums, ja nav atzīmēta rūtiņa un nospiesta poga.
     // Also checks if it has been checked afterward if true inserts value into DB
+    // Kā arī pārbauda vai ir atzīmeta rūtiņa, ja ir, tad ievieto vērtību datubāzē
     if (currency.dataset.currency >= bet) {
         if (homeFighter.checked) {
             fighter = homeFighter.value;
@@ -63,11 +73,10 @@ function activateButton(id, bet) {
                 document.body.appendChild(alertContainer);
             }
             alertContainer.appendChild(alertDiv);
-
+            // Pievieno laiku, pēc kura paziņojums pazūd
             setTimeout(() => {
                 alertDiv.classList.remove('opacity-0');
             }, 100);
-
             setTimeout(() => {
                 alertDiv.classList.add('opacity-0');
                 setTimeout(() => {
@@ -82,27 +91,29 @@ function activateButton(id, bet) {
         currency.innerHTML = newCoin;
         currency.dataset.currency = newCoin;
 
-        // Jauna funkcija AJAX
+        // Padod datus uz funkciju, kas ievieto datus datubāzē
         updCoin(bet, fighter, event, koef, mainEv);
 
-        // Styling for button if checked and unchecked
+        // Stils priekš pogām, kad ir uzspiestas un kad nav uzspiestas.
         buttons.forEach(button => {
             button.disabled = true;
+            //Nospiestai pogai, kurai klase ir active, pievieno stilu
             if (button.classList.contains('active')) {
                 button.classList.add('bg-[#e4c065]');
                 button.classList.add('text-[#4E4E4E]');
             } else {
-                // Add red cross to disabled button
+                // Pievieno sarkanu ikonu, ja nav uzspiesta poga
                 button.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'px-4', 'py-2');
                 button.innerHTML = '';
                 let icon = document.createElement('i');
                 icon.classList.add('uil', 'uil-ban', 'text-red-500');
                 button.appendChild(icon);
             }
+            // Pievieno klasi active
             document.getElementById('bet-' + id + '-' + bet).classList.add('active');
         });
 
-        // Show success message
+        // Paziņojums par veiksmīgu likmi un stils
         const successMessage = document.createElement('div');
         successMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
         successMessage.innerHTML = `
@@ -118,7 +129,7 @@ function activateButton(id, bet) {
             document.body.appendChild(alertContainer);
         }
         alertContainer.appendChild(successMessage);
-
+        // Pievieno laiku, pēc kura paziņojums pazūd
         setTimeout(() => {
             successMessage.classList.remove('opacity-0');
         }, 100);
@@ -130,6 +141,7 @@ function activateButton(id, bet) {
             }, 500);
         }, 3000);
     } else {
+        // Ja nav pietiekami līdzekļu, tad parādas paziņojums
         const errorMessage = document.createElement('div');
         errorMessage.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
         errorMessage.innerHTML = `
@@ -145,7 +157,7 @@ function activateButton(id, bet) {
             document.body.appendChild(alertContainer);
         }
         alertContainer.appendChild(errorMessage);
-
+// Pievieno laiku, pēc kura paziņojums pazūd
         setTimeout(() => {
             errorMessage.classList.remove('opacity-0');
         }, 100);
@@ -159,7 +171,7 @@ function activateButton(id, bet) {
     }
 }
 
-//Forwards data to UpdateCurrency to insert into database
+//Funkcija, kas padod iegūtos datus uz updateCurrency.php
 function updCoin(newCoin, fighter, event, koef, mainEv) {
     let xhttp = new XMLHttpRequest()
     xhttp.open('POST', 'controllers/updateCurrency.php', true)
@@ -175,6 +187,7 @@ function updCoin(newCoin, fighter, event, koef, mainEv) {
     console.log('data=' + data);
 }
 
+//Funkcija, kas padod lietotāja atjaunināto valūtu uz updateUserMoney.php
 function updCurrency() {
     let test = new XMLHttpRequest();
     test.open('POST', 'controllers/updateUserMoney.php', true);

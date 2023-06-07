@@ -1,4 +1,6 @@
 <?php
+// šeit ir funkcijas, kas tiek izmantotas visās lapās, kurās ir nepieciešama sesija
+// šī funkcija pārbauda vai sesija ir sākusies, ja nav, tad tiek pāradresēts uz reģistrācijas vietni
 function userID()
 {
     if (isset($_SESSION['logged'])) {
@@ -8,7 +10,7 @@ function userID()
         header("Location:./register.php");
     }
 }
-
+// Ja ir nospiesta hipersaite "Iziet", tad tiek izsaukta šī funkcija, kas iznīcina sesiju un pāradresē uz reģistrācijas vietni
 function logOut()
 {
     if (isset($_POST['logOut'])) {
@@ -16,9 +18,10 @@ function logOut()
         header("Location:./register.php");
     }
 }
-
+// Šī funkcija paņem lietotāja vārdu no datubāzes, kur pēc tam tas tiek apstrādāts ar unikālu CSS stilu
 function nickName($conn)
 {
+    // Pārbauda vai sesija ir sākusies
     if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $stmt = $conn->prepare("SELECT nickname FROM loginhelp WHERE id = ?");
@@ -26,6 +29,7 @@ function nickName($conn)
         $stmt->execute();
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
+            // Izvada lietotājvārdu uz navigācija joslas
             while ($row = $result->fetch_assoc()) {
                 echo "<h3 class='nickname'>" . htmlspecialchars($row['nickname']) . "</h3>";
             }
@@ -33,7 +37,7 @@ function nickName($conn)
         $stmt->close();
     }
 }
-
+// Šī funkcija paņem lietotāja virtuālo naudu no datubāzes
 function currency($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -48,7 +52,7 @@ function currency($conn)
         }
     }
 }
-
+// Šī funkcija paņem lietotājvārdu no datubāzes
 function nickNameProfile($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -65,7 +69,7 @@ function nickNameProfile($conn)
         $stmt->close();
     }
 }
-
+// Šī funkcija paņem lietotāja e-pasta adresi
 function email($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -82,7 +86,7 @@ function email($conn)
         }
     }
 }
-
+// Šī funkcija paņem lietotāja profila bildi
 function profilePic($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -99,7 +103,7 @@ function profilePic($conn)
         }
     }
 }
-
+// Šī funkcija paņem lietotāja vārdu
 function firstName($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -115,7 +119,7 @@ function firstName($conn)
         $stmt->close();
     }
 }
-
+// Šī funkcija paņem lietotāja uzvārdu
 function lastName($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -132,7 +136,7 @@ function lastName($conn)
         }
     }
 }
-
+// Šī funkcija paņem lietotāja dzīvesvietu
 function location($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -148,7 +152,7 @@ function location($conn)
         }
     }
 }
-
+// Šī funkcija paņem lietotāja vecumu
 function age($conn)
 {
     if (isset($_SESSION['user'])) {
@@ -164,7 +168,7 @@ function age($conn)
         }
     }
 }
-
+// Šī funkcija pārbauda vai lietotājs ir pieslēdzies un ja ir tad tiek pāradresēts uz index.php vietni
 function loggedIn()
 {
     if (isset($_SESSION['logged'])) {

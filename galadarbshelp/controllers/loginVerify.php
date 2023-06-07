@@ -34,5 +34,3 @@ if (isset($_POST['email2']) && isset($_POST['password2'])) {
 if (!empty($users)) {
     echo htmlentities($users, ENT_QUOTES);
 }
-
-?>

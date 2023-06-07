@@ -1,13 +1,20 @@
+// Funckijas, kas ir paredzēta, lai iegūtu php failus, kas ir paredzēti priekš reģistrācijas un pieslēgšanās formām
 function getInput(inputCtrl, event, inputForm) {
+    // Novērš notikuma noklusējuma uzvedību.
     event.preventDefault();
+    // Iegūst msg id no faila, kurā ir ievietots paziņojums par kļūdu.
     let msg = document.getElementById('msg');
+    // Iegūst formu no faila, kurā ir ievietota forma.
     let form = document.getElementById(inputForm);
     let xmlhttp = new XMLHttpRequest();
+    // Iegūst datus no formas.
     let formData = new FormData(form);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            // Pārbauda, vai atgrieztā vērtība ir "true".
             if (this.responseText === "true") {
                 const successMessage = "You have successfully logged in!";
+                // Ja ir "true", tad pārslēdz uz index.php un ievieto paziņojumu.
                 window.location = `index.php?message=${encodeURIComponent(successMessage)}`;
             } else {
                 msg.innerHTML = this.responseText;
@@ -17,7 +24,7 @@ function getInput(inputCtrl, event, inputForm) {
     xmlhttp.open("POST", "controllers/" + inputCtrl, true);
     xmlhttp.send(formData);
 }
-
+// Parāda paziņojumu, ja ir veiksmīgi reģistrējies.
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const message = urlParams.get('message');
@@ -25,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showSuccessMessage(message);
     }
 });
-
+// Veiksmīgas reģistrācijas paziņojums.
 function showSuccessMessage(message) {
     const successBox = document.createElement('div');
     successBox.classList.add('fixed', 'bottom-4', 'right-4', 'z-50');
@@ -40,11 +47,14 @@ function showSuccessMessage(message) {
         successBox.remove();
     }, 5000);
 }
-
+// Iegūst ievadformu datus un padod tos tālāk uz php failiem. Izmanto priekš lietotāja profila konfigurēšanas.
 function getValue(inputCtrl, event, profileForm, id) {
+    // Novērš notikuma noklusējuma uzvedību.
     event.preventDefault();
+    // Iegūst msg id no faila, kurā ir ievietots paziņojums par kļūdu.
     let msg = document.getElementById('msg' + id);
     let form = document.getElementById(profileForm);
+    // Iegūst datus no formas.
     let formData = new FormData(form);
 
     fetch('controllers/' + inputCtrl, {
@@ -61,7 +71,7 @@ function getValue(inputCtrl, event, profileForm, id) {
         });
     console.log(msg)
 }
-
+// Funkcija, kas izdzēš lietotāju no datubāzes un parvieto to uz reģistrācijas lapu.
 function deleteUser(userID) {
     let msg = document.getElementById('deleteUser');
     let xmlhttp = new XMLHttpRequest();
@@ -78,10 +88,13 @@ function deleteUser(userID) {
     xmlhttp.send();
 
 }
-
+// Funkcija, kas ļauj lietotājam pārvietoties no reģistrācijas uz pieslēgšanās lapu un otrādi.
 function displayShow() {
+    // Novērš notikuma noklusējuma uzvedību.
     event.preventDefault();
+    // Meklē divReg no faila, kurā ir ievietota reģistrācijas forma.
     let x = document.getElementById("divReg");
+    // Pievieno attiecīgo stilu un tekstu.
     if (x.style.display === "none") {
         btn.textContent = 'Login';
         text.textContent = "Don't have an account?";
@@ -91,8 +104,9 @@ function displayShow() {
         text.textContent = "Have an account?";
         x.style.display = "none";
     }
-
+    // Meklē divLog no faila, kurā ir ievietota pieslēgšanās forma.
     let y = document.getElementById("divLog");
+    // Pievieno attiecīgo stilu un tekstu.
     if (y.style.display == "flex") {
         btn.textContent = 'Login';
         text.textContent = "Have an account?";
@@ -103,23 +117,11 @@ function displayShow() {
         y.style.display = "flex";
     }
 }
-
-function activateTabs(panelIndex) {
-    const tabBtn = document.querySelectorAll(".tab");
-    const tab = document.querySelectorAll(".tabShow");
-
-    tab.forEach(function (node) {
-        node.style.display = "none";
-    });
-    tab[panelIndex].style.display = "flex";
-}
-
-activateTabs(0);
-
+// Funkcija, kas pārvērš navigācijas joslu uz hamburgera navigāciju.
 function hamburger() {
     let menu = document.getElementById("mobile-menu-2");
     let menuVisible = menu.style.display === "flex";
-
+    // Ja navigācijas josla ir redzama, tad hamurgera navigācija ir neredzama un otrādi.
     if (menuVisible) {
         menu.style.display = "none";
         document.removeEventListener("click", hamburger);
