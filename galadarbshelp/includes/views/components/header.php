@@ -25,8 +25,8 @@ $coin = currency($conn);
 <header class="fixed bg-[#4e4e4e] w-full h-20 z-10 drop-shadow-xl">
     <div class="min-w-full max-h-20 flex align-center  items-center flex-wrap lg:justify-center">
         <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/index.php"><img src="includes/images/FFCblack.png"
-                                                                            class="rounded-lg cursor-pointer h-20"></a>
-        <div class="headerImage min-w-[30%] flex flex-row justify-start items-center h-20">
+                                                                            class="rounded-lg cursor-pointer h-12 sm:h-16 md:h-20"></a>
+        <div class="headerImage min-w-[25%] flex flex-row justify-start items-center h-20">
             <button onclick="hamburger(); event.stopPropagation();" data-collapse-toggle="mobile-menu-2" type="button"
                     class="visible lg:invisible inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg hover:bg-[#e4c065] focus:outline-none focus:ring-2 focus:ring-gray-200"
                     aria-controls="mobile-menu-2" aria-expanded="false">
@@ -85,8 +85,8 @@ $coin = currency($conn);
             </div>
         </div>
 
-        <div class="headerProfile min-w-[40%] md:min-w-[58%] flex flex-row justify-end items-center h-22 gap-8 font-medium pr-3.5">
-            <div class="hidden flex md:flex">
+        <div class="headerProfile min-w-[50%] md:min-w-[60%] flex flex-row justify-end items-center h-22 gap-8 font-medium pr-3.5">
+            <div class="flex">
                 <p id="currency" class="text-white font-semibold" data-currency="<?= $coin ?>">
                     <?= $coin ?>
                 </p>

@@ -29,6 +29,8 @@
                class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[6%] hover:transition duration-300 ease-out hover:scale-110">Bets</a>
             <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/info.php"
                class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[5%] hover:transition duration-300 ease-out hover:scale-110">Info</a>
+            <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/results.php"
+               class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[10%] hover:transition duration-300 ease-out hover:scale-110">Results</a>
             <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/profile.php"
                class="text-base md:text-lg hover:text-[#e4c065] underline-none hover:underline hover:underline-offset-8 w-[10%] hover:transition duration-300 ease-out hover:scale-110">Profile</a>
         </div>
