@@ -9,7 +9,7 @@ function toggleCheckboxes(checkBoxHome, checkBoxAway, id) {
             awayBox.checked = false;
             homeBox.setAttribute('data-checked', 'true');
             awayBox.setAttribute('data-checked', 'false');
-        }else{
+        } else {
             homeBox.setAttribute('data-checked', 'false');
             awayBox.setAttribute('data-checked', 'false');
         }
@@ -20,7 +20,7 @@ function toggleCheckboxes(checkBoxHome, checkBoxAway, id) {
             homeBox.checked = false;
             awayBox.setAttribute('data-checked', 'true');
             homeBox.setAttribute('data-checked', 'false');
-        }else{
+        } else {
             homeBox.setAttribute('data-checked', 'false');
             awayBox.setAttribute('data-checked', 'false');
         }
@@ -40,19 +40,74 @@ function activateButton(id, bet) {
 
     // Alert Message if checkbox not checked and button pressed.
     // Also checks if it has been checked afterward if true inserts value into DB
-if(currency.dataset.currency >= bet){
-    if (homeFighter.checked) {
-        fighter = homeFighter.value;
-        koef = koefHome.getAttribute('data-koef');
-    } else if (awayFighter.checked) {
-        fighter = awayFighter.value;
-        koef = koefAway.getAttribute('data-koef');
-    } else {
-        const alertDiv = document.createElement('div');
-        alertDiv.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
-        alertDiv.innerHTML = `
+    if (currency.dataset.currency >= bet) {
+        if (homeFighter.checked) {
+            fighter = homeFighter.value;
+            koef = koefHome.getAttribute('data-koef');
+        } else if (awayFighter.checked) {
+            fighter = awayFighter.value;
+            koef = koefAway.getAttribute('data-koef');
+        } else {
+            const alertDiv = document.createElement('div');
+            alertDiv.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
+            alertDiv.innerHTML = `
     <strong class="font-bold">Attention!</strong>
     <span class="block sm:inline">Please choose a fighter.</span>
+`;
+
+            let alertContainer = document.getElementById('alert-container');
+            if (!alertContainer) {
+                alertContainer = document.createElement('div');
+                alertContainer.id = 'alert-container';
+                alertContainer.classList.add('fixed', 'top-4', 'right-4', 'z-50');
+                document.body.appendChild(alertContainer);
+            }
+            alertContainer.appendChild(alertDiv);
+
+            setTimeout(() => {
+                alertDiv.classList.remove('opacity-0');
+            }, 100);
+
+            setTimeout(() => {
+                alertDiv.classList.add('opacity-0');
+                setTimeout(() => {
+                    alertDiv.remove();
+                }, 500);
+            }, 3000);
+
+            return;
+        }
+
+        let event = homeFighter.getAttribute('data-event');
+        currency.innerHTML = newCoin;
+        currency.dataset.currency = newCoin;
+
+        // Jauna funkcija AJAX
+        updCoin(bet, fighter, event, koef, mainEv);
+
+        // Styling for button if checked and unchecked
+        buttons.forEach(button => {
+            button.disabled = true;
+            if (button.classList.contains('active')) {
+                button.classList.add('bg-[#e4c065]');
+                button.classList.add('text-[#4E4E4E]');
+            } else {
+                // Add red cross to disabled button
+                button.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'px-4', 'py-2');
+                button.innerHTML = '';
+                let icon = document.createElement('i');
+                icon.classList.add('uil', 'uil-ban', 'text-red-500');
+                button.appendChild(icon);
+            }
+            document.getElementById('bet-' + id + '-' + bet).classList.add('active');
+        });
+
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
+        successMessage.innerHTML = `
+    <strong class="font-bold">Success!</strong>
+    <span class="block sm:inline">You have successfully placed a bet!</span>
 `;
 
         let alertContainer = document.getElementById('alert-container');
@@ -62,101 +117,46 @@ if(currency.dataset.currency >= bet){
             alertContainer.classList.add('fixed', 'top-4', 'right-4', 'z-50');
             document.body.appendChild(alertContainer);
         }
-        alertContainer.appendChild(alertDiv);
+        alertContainer.appendChild(successMessage);
 
         setTimeout(() => {
-            alertDiv.classList.remove('opacity-0');
+            successMessage.classList.remove('opacity-0');
         }, 100);
 
         setTimeout(() => {
-            alertDiv.classList.add('opacity-0');
+            successMessage.classList.add('opacity-0');
             setTimeout(() => {
-                alertDiv.remove();
+                successMessage.remove();
             }, 500);
         }, 3000);
-
-        return;
-    }
-
-    let event = homeFighter.getAttribute('data-event');
-    currency.innerHTML = newCoin;
-    currency.dataset.currency = newCoin;
-
-    // Jauna funkcija AJAX
-    updCoin(bet, fighter, event, koef, mainEv);
-
-    // Styling for button if checked and unchecked
-    buttons.forEach(button => {
-        button.disabled = true;
-        if (button.classList.contains('active')) {
-            button.classList.add('bg-[#e4c065]');
-            button.classList.add('text-[#4E4E4E]');
-        } else {
-            // Add red cross to disabled button
-            button.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'px-4', 'py-2');
-            button.innerHTML = '';
-            let icon = document.createElement('i');
-            icon.classList.add('uil', 'uil-ban', 'text-red-500');
-            button.appendChild(icon);
-        }
-        document.getElementById('bet-' + id + '-' + bet).classList.add('active');
-    });
-
-    // Show success message
-    const successMessage = document.createElement('div');
-    successMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
-    successMessage.innerHTML = `
-    <strong class="font-bold">Success!</strong>
-    <span class="block sm:inline">You have successfully placed a bet!</span>
-`;
-
-    let alertContainer = document.getElementById('alert-container');
-    if (!alertContainer) {
-        alertContainer = document.createElement('div');
-        alertContainer.id = 'alert-container';
-        alertContainer.classList.add('fixed', 'top-4', 'right-4', 'z-50');
-        document.body.appendChild(alertContainer);
-    }
-    alertContainer.appendChild(successMessage);
-
-    setTimeout(() => {
-        successMessage.classList.remove('opacity-0');
-    }, 100);
-
-    setTimeout(() => {
-        successMessage.classList.add('opacity-0');
-        setTimeout(() => {
-            successMessage.remove();
-        }, 500);
-    }, 3000);
-}else{
-    const errorMessage = document.createElement('div');
-    errorMessage.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
-    errorMessage.innerHTML = `
+    } else {
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
+        errorMessage.innerHTML = `
     <strong class="font-bold">Error!</strong>
     <span class="block sm:inline">You do not have enough funds to place a bet!</span>
 `;
 
-    let alertContainer = document.getElementById('alert-container');
-    if (!alertContainer) {
-        alertContainer = document.createElement('div');
-        alertContainer.id = 'alert-container';
-        alertContainer.classList.add('fixed', 'top-4', 'right-4', 'z-50');
-        document.body.appendChild(alertContainer);
-    }
-    alertContainer.appendChild(errorMessage);
+        let alertContainer = document.getElementById('alert-container');
+        if (!alertContainer) {
+            alertContainer = document.createElement('div');
+            alertContainer.id = 'alert-container';
+            alertContainer.classList.add('fixed', 'top-4', 'right-4', 'z-50');
+            document.body.appendChild(alertContainer);
+        }
+        alertContainer.appendChild(errorMessage);
 
-    setTimeout(() => {
-        errorMessage.classList.remove('opacity-0');
-    }, 100);
-
-    setTimeout(() => {
-        errorMessage.classList.add('opacity-0');
         setTimeout(() => {
-            errorMessage.remove();
-        }, 500);
-    }, 3000);
-}
+            errorMessage.classList.remove('opacity-0');
+        }, 100);
+
+        setTimeout(() => {
+            errorMessage.classList.add('opacity-0');
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 500);
+        }, 3000);
+    }
 }
 
 //Forwards data to UpdateCurrency to insert into database
@@ -164,26 +164,26 @@ function updCoin(newCoin, fighter, event, koef, mainEv) {
     let xhttp = new XMLHttpRequest()
     xhttp.open('POST', 'controllers/updateCurrency.php', true)
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let response = this.responseText;
             // console.log("answer from ajax: " + response);
         }
     };
-    let data = 'coin='+newCoin+'&fighter='+fighter+'&event='+event+'&koef='+koef+'&mainEv='+mainEv;
+    let data = 'coin=' + newCoin + '&fighter=' + fighter + '&event=' + event + '&koef=' + koef + '&mainEv=' + mainEv;
     xhttp.send(data);
-    console.log('data='+data);
+    console.log('data=' + data);
 }
 
 function updCurrency() {
     let test = new XMLHttpRequest();
     test.open('POST', 'controllers/updateUserMoney.php', true);
     test.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    test.onreadystatechange = function() {
+    test.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let response = this.responseText;
             console.log("answer from ajax: " + response);
-            if(response !== ''){
+            if (response !== '') {
                 document.getElementById('currency').innerHTML = response;
             }
 
@@ -192,4 +192,5 @@ function updCurrency() {
     let data = 'getResult=1';
     test.send(data);
 }
+
 updCurrency();

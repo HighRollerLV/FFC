@@ -1,13 +1,15 @@
 <?php
-function insert($sql, $conn){
-    if($conn->query($sql)===TRUE){
+function insert($sql, $conn)
+{
+    if ($conn->query($sql) === TRUE) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-function select($sql, $conn){
+function select($sql, $conn)
+{
     $results = $conn->query($sql);
     return $results;
 }

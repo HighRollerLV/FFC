@@ -20,15 +20,15 @@ if (isset($_POST['coin'])) {
     $rowGetCurrency = $resultGetCurrency->fetch_assoc();
     $userTotalCurrency = $rowGetCurrency['currency'];
 
-            $sqlIns = "INSERT INTO UserBets (SingleEventId, eventId, FighterId, Koef, UserId, BetAmount) VALUES (?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($sqlIns);
-            $stmt->bind_param("iiidii", $eventID, $mainEv, $fighterID, $koef, $userID, $currency);
-            $stmt->execute();
+    $sqlIns = "INSERT INTO UserBets (SingleEventId, eventId, FighterId, Koef, UserId, BetAmount) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sqlIns);
+    $stmt->bind_param("iiidii", $eventID, $mainEv, $fighterID, $koef, $userID, $currency);
+    $stmt->execute();
 
-            $sql = "UPDATE loginhelp SET currency = currency - ? WHERE id = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ii", $currency, $userID);
-            $stmt->execute();
-            $updateCurrency = $stmt->affected_rows;
-            echo json_encode($updateCurrency);
+    $sql = "UPDATE loginhelp SET currency = currency - ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $currency, $userID);
+    $stmt->execute();
+    $updateCurrency = $stmt->affected_rows;
+    echo json_encode($updateCurrency);
 }

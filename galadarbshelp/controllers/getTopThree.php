@@ -40,7 +40,8 @@ foreach ($resultSet as $row) {
 }
 
 ?>
-    <div class="upperRanking flex flex-col justify-center items-center w-1/3 md:w-1/4 lg:w-1/5 pt-24 text-slate-200" style="text-shadow: 0 0 5px black, 1px 0 0 black,
+    <div class="upperRanking flex flex-col justify-center items-center w-1/3 md:w-1/4 lg:w-1/5 pt-24 text-slate-200"
+         style="text-shadow: 0 0 5px black, 1px 0 0 black,
             -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black,
              -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
         <div class="secondPlace flex flex-col flex-wrap justify-start items-center w-full min-h-[28rem] bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400 rounded-tl-lg drop-shadow-lg">
@@ -65,7 +66,8 @@ foreach ($resultSet as $row) {
              -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
         <div class="champion flex flex-col flex-wrap justify-start items-center w-full min-h-[34rem] bg-gradient-to-r from-yellow-300 to-yellow-500 rounded-t-lg drop-shadow-lg">
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold pt-4 text-slate-200">Champion</h2>
-            <span class="text-xl sm:text-2xl lg:text-3xl pt-4 text-[#e4c065]"><i class="uil uil-trophy font-bold"></i></span>
+            <span class="text-xl sm:text-2xl lg:text-3xl pt-4 text-[#e4c065]"><i
+                        class="uil uil-trophy font-bold"></i></span>
             <div class="flex flex-col items-center justify-center min-h-[32rem] gap-4">
                 <div class="pb-16">
                     <img src="<?php echo $first_place['profilePic'] ?>"
@@ -89,7 +91,8 @@ foreach ($resultSet as $row) {
             <div class="flex flex-col items-center justify-center min-h-[24rem] gap-4">
                 <div class="pb-10">
                     <img src="<?php echo $third_place['profilePic'] ?>"
-                         class="w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 rounded border-8 drop-shadow-2xl border-yellow-600" alt="thirdPlaceImage">
+                         class="w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 rounded border-8 drop-shadow-2xl border-yellow-600"
+                         alt="thirdPlaceImage">
                 </div>
                 <p class="text-lg sm:text-xl lg:text-2xl font-semibold pt-0 text-slate-200" style="text-shadow: 0 0 5px black, 1px 0 0 black,
             -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black,

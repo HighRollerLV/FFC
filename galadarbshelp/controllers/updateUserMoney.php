@@ -2,7 +2,7 @@
 include "../config/db.php";
 session_start();
 
-if(isset($_POST['getResult'])) {
+if (isset($_POST['getResult'])) {
     $userID = $_SESSION['user'];
 
     $stmt = $conn->prepare("SELECT * FROM UserBets WHERE UserId = ?");

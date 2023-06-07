@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    include "../models/dbOperations.php";
-    include "../config/db.php";
-    include "../controllers/sessions.php";
+session_start();
+include "../models/dbOperations.php";
+include "../config/db.php";
+include "../controllers/sessions.php";
 $userID = $_SESSION['user'];
 $stmt = $conn->prepare("DELETE FROM loginhelp WHERE id=?");
 $stmt->bind_param("i", $userID);

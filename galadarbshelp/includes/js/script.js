@@ -18,7 +18,7 @@ function getInput(inputCtrl, event, inputForm) {
     xmlhttp.send(formData);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const message = urlParams.get('message');
     if (message) {
@@ -36,18 +36,18 @@ function showSuccessMessage(message) {
     `;
     document.body.appendChild(successBox);
 
-    setTimeout(function() {
+    setTimeout(function () {
         successBox.remove();
     }, 5000);
 }
 
-function getValue(inputCtrl, event, profileForm, id){
+function getValue(inputCtrl, event, profileForm, id) {
     event.preventDefault();
-    let msg = document.getElementById('msg'+id);
+    let msg = document.getElementById('msg' + id);
     let form = document.getElementById(profileForm);
     let formData = new FormData(form);
 
-    fetch('controllers/'+inputCtrl, {
+    fetch('controllers/' + inputCtrl, {
         method: 'POST',
         body: formData
     })

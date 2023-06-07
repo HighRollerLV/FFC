@@ -1,21 +1,24 @@
 <?php
-function userID(){
-    if(isset($_SESSION['logged'])){
+function userID()
+{
+    if (isset($_SESSION['logged'])) {
         $userID = $_SESSION['user'];
         return $_SESSION['user'];
-    }else{
-         header("Location:./register.php");
+    } else {
+        header("Location:./register.php");
     }
 }
 
-function logOut(){
-    if(isset($_POST['logOut'])){
+function logOut()
+{
+    if (isset($_POST['logOut'])) {
         session_destroy();
         header("Location:./register.php");
     }
 }
 
-function nickName($conn) {
+function nickName($conn)
+{
     if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $stmt = $conn->prepare("SELECT nickname FROM loginhelp WHERE id = ?");
@@ -31,29 +34,31 @@ function nickName($conn) {
     }
 }
 
-function currency($conn){
-    if(isset($_SESSION['user'])){
+function currency($conn)
+{
+    if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $stmt = $conn->prepare("SELECT currency FROM loginhelp WHERE id = ?");
         $stmt->bind_param("i", $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result){
+        if ($result) {
             $row = $result->fetch_assoc();
             return $row['currency'];
         }
     }
 }
 
-function nickNameProfile($conn){
-    if(isset($_SESSION['user'])){
+function nickNameProfile($conn)
+{
+    if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $stmt = $conn->prepare("SELECT nickname FROM loginhelp WHERE id = ?");
         $stmt->bind_param("i", $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result && $result->num_rows > 0){
-            while($row = $result->fetch_assoc()){
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
                 echo $row['nickname'];
             }
         }
@@ -61,39 +66,42 @@ function nickNameProfile($conn){
     }
 }
 
-function email($conn){
-    if(isset($_SESSION['user'])){
+function email($conn)
+{
+    if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $sql = "SELECT email FROM loginhelp WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result){
-            while($row = $result->fetch_assoc()){
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
                 echo $row['email'];
             }
         }
     }
 }
 
-function profilePic($conn){
-    if(isset($_SESSION['user'])){
+function profilePic($conn)
+{
+    if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $sql = "SELECT * FROM loginhelp WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result){
-            while($row = $result->fetch_assoc()){
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
                 echo $row['profilePic'];
             }
         }
     }
 }
 
-function firstName($conn) {
+function firstName($conn)
+{
     if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $stmt = $conn->prepare("SELECT firstName FROM loginhelp WHERE id = ?");
@@ -108,54 +116,58 @@ function firstName($conn) {
     }
 }
 
-function lastName($conn) {
-    if(isset($_SESSION['user'])) {
+function lastName($conn)
+{
+    if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $sql = "SELECT lastName FROM loginhelp WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result) {
-            while($row = $result->fetch_assoc()) {
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
                 echo $row['lastName'];
             }
         }
     }
 }
 
-function location($conn) {
-    if(isset($_SESSION['user'])) {
+function location($conn)
+{
+    if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $stmt = $conn->prepare("SELECT * FROM loginhelp WHERE id = ?");
         $stmt->bind_param("i", $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result) {
-            while($row = $result->fetch_assoc()){
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
                 echo $row['location'];
             }
         }
     }
 }
 
-function age($conn){
-    if(isset($_SESSION['user'])){
+function age($conn)
+{
+    if (isset($_SESSION['user'])) {
         $userID = $_SESSION['user'];
         $stmt = $conn->prepare("SELECT * FROM loginhelp WHERE id = ?");
         $stmt->bind_param("i", $userID);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result){
-            while($row = $result->fetch_assoc()){
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
                 echo $row['age'];
             }
         }
     }
 }
 
-function loggedIn() {
-    if(isset($_SESSION['logged'])){
+function loggedIn()
+{
+    if (isset($_SESSION['logged'])) {
         header("Location:./index.php");
     }
 }

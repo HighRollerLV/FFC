@@ -6,6 +6,6 @@ $dbName = 'ralfsd';
 
 $conn = new mysqli($host, $user, $pass, $dbName);
 
-if($conn->connect_error){
+if ($conn->connect_error) {
     echo "There was an error connecting to the database!";
 }
