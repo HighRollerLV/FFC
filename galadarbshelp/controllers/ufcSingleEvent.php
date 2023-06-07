@@ -1,12 +1,12 @@
 <?php
 
 
-$event = "SELECT * FROM UFC_Single_Event
-WHERE eventDate >= CURDATE() AND eventDate <= DATE_ADD(CURDATE(), INTERVAL 8 DAY)
-ORDER BY id DESC";
 //$event = "SELECT * FROM UFC_Single_Event
-//WHERE eventDate >= DATE_SUB(CURDATE(), INTERVAL 20 DAY) AND eventDate <= CURDATE()
+//WHERE eventDate >= CURDATE() AND eventDate <= DATE_ADD(CURDATE(), INTERVAL 8 DAY)
 //ORDER BY id DESC";
+$event = "SELECT * FROM UFC_Single_Event
+WHERE eventDate >= DATE_SUB(CURDATE(), INTERVAL 20 DAY) AND eventDate <= CURDATE()
+ORDER BY id DESC";
 $stmt = $conn->prepare($event);
 
 // Check if the statement preparation was successful
@@ -36,9 +36,10 @@ while ($rowEv = $result->fetch_assoc()) {
 
     $fighterHomeFull = substr(strstr($figHomeSelected["fighter"], ', '), 2) . ' ' . strstr($figHomeSelected["fighter"], ', ', true);
     $fighterHomeRank = str_replace('99', 'NR', ($figHomeSelected["rank"]));
+    $fighterHomeRank = ($figHomeSelected["rank"] === '0') ? 'C' : str_replace('99', 'NR', $figHomeSelected["rank"]);
 
     $fighterAwayFull = substr(strstr($figAwaySelected["fighter"], ', '), 2) . ' ' . strstr($figAwaySelected["fighter"], ', ', true);
-    $fighterAwayRank = str_replace('99', 'NR', ($figAwaySelected["rank"]));
+    $fighterAwayRank = ($figAwaySelected["rank"] === '0') ? 'C' : str_replace('99', 'NR', $figAwaySelected["rank"]);
 
     $fightBout = ucfirst(str_replace('lightheavy', 'light heavyweight', str_replace('_', ' ', $rowEv["weightDiv"])));
 

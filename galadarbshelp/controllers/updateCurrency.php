@@ -20,20 +20,6 @@ if (isset($_POST['coin'])) {
     $rowGetCurrency = $resultGetCurrency->fetch_assoc();
     $userTotalCurrency = $rowGetCurrency['currency'];
 
-    // Check if the user has already bet on the fighter for the given event
-    $sqlCheck = "SELECT * FROM UserBets WHERE SingleEventId = ? AND FighterId = ? AND UserId = ?";
-    $stmtCheck = $conn->prepare($sqlCheck);
-    $stmtCheck->bind_param("iii", $eventID, $fighterID, $userID);
-    $stmtCheck->execute();
-    $result = $stmtCheck->get_result();
-
-    if ($result->num_rows > 0) {
-        echo "You have already bet on the fighter!";
-    } else {
-        // User has not bet on the fighter, proceed with inserting the new bet
-        if ($currency <= 0 || $currency > $userTotalCurrency) {
-            echo "Not enough funds!";
-        } else {
             $sqlIns = "INSERT INTO UserBets (SingleEventId, eventId, FighterId, Koef, UserId, BetAmount) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sqlIns);
             $stmt->bind_param("iiidii", $eventID, $mainEv, $fighterID, $koef, $userID, $currency);
@@ -45,6 +31,4 @@ if (isset($_POST['coin'])) {
             $stmt->execute();
             $updateCurrency = $stmt->affected_rows;
             echo json_encode($updateCurrency);
-        }
-    }
 }

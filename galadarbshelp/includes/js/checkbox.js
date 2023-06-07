@@ -40,6 +40,7 @@ function activateButton(id, bet) {
 
     // Alert Message if checkbox not checked and button pressed.
     // Also checks if it has been checked afterward if true inserts value into DB
+if(currency.dataset.currency >= bet){
     if (homeFighter.checked) {
         fighter = homeFighter.value;
         koef = koefHome.getAttribute('data-koef');
@@ -48,11 +49,12 @@ function activateButton(id, bet) {
         koef = koefAway.getAttribute('data-koef');
     } else {
         const alertDiv = document.createElement('div');
-        alertDiv.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4');
+        alertDiv.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
         alertDiv.innerHTML = `
-            <strong class="font-bold">Attention!</strong>
-            <span class="block sm:inline">Please choose a fighter.</span>
-        `;
+    <strong class="font-bold">Attention!</strong>
+    <span class="block sm:inline">Please choose a fighter.</span>
+`;
+
         let alertContainer = document.getElementById('alert-container');
         if (!alertContainer) {
             alertContainer = document.createElement('div');
@@ -61,9 +63,17 @@ function activateButton(id, bet) {
             document.body.appendChild(alertContainer);
         }
         alertContainer.appendChild(alertDiv);
+
         setTimeout(() => {
-            alertDiv.remove();
-        }, 5000);
+            alertDiv.classList.remove('opacity-0');
+        }, 100);
+
+        setTimeout(() => {
+            alertDiv.classList.add('opacity-0');
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 500);
+        }, 3000);
 
         return;
     }
@@ -94,11 +104,12 @@ function activateButton(id, bet) {
 
     // Show success message
     const successMessage = document.createElement('div');
-    successMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4');
+    successMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
     successMessage.innerHTML = `
-        <strong class="font-bold">Success!</strong>
-        <span class="block sm:inline">You have successfully placed a bet!</span>
-    `;
+    <strong class="font-bold">Success!</strong>
+    <span class="block sm:inline">You have successfully placed a bet!</span>
+`;
+
     let alertContainer = document.getElementById('alert-container');
     if (!alertContainer) {
         alertContainer = document.createElement('div');
@@ -107,10 +118,47 @@ function activateButton(id, bet) {
         document.body.appendChild(alertContainer);
     }
     alertContainer.appendChild(successMessage);
+
     setTimeout(() => {
-        successMessage.remove();
-    }, 5000);
+        successMessage.classList.remove('opacity-0');
+    }, 100);
+
+    setTimeout(() => {
+        successMessage.classList.add('opacity-0');
+        setTimeout(() => {
+            successMessage.remove();
+        }, 500);
+    }, 3000);
+}else{
+    const errorMessage = document.createElement('div');
+    errorMessage.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-3', 'rounded', 'relative', 'mb-4', 'transition', 'opacity-0');
+    errorMessage.innerHTML = `
+    <strong class="font-bold">Error!</strong>
+    <span class="block sm:inline">You do not have enough funds to place a bet!</span>
+`;
+
+    let alertContainer = document.getElementById('alert-container');
+    if (!alertContainer) {
+        alertContainer = document.createElement('div');
+        alertContainer.id = 'alert-container';
+        alertContainer.classList.add('fixed', 'top-4', 'right-4', 'z-50');
+        document.body.appendChild(alertContainer);
+    }
+    alertContainer.appendChild(errorMessage);
+
+    setTimeout(() => {
+        errorMessage.classList.remove('opacity-0');
+    }, 100);
+
+    setTimeout(() => {
+        errorMessage.classList.add('opacity-0');
+        setTimeout(() => {
+            errorMessage.remove();
+        }, 500);
+    }, 3000);
 }
+}
+
 //Forwards data to UpdateCurrency to insert into database
 function updCoin(newCoin, fighter, event, koef, mainEv) {
     let xhttp = new XMLHttpRequest()
@@ -127,4 +175,21 @@ function updCoin(newCoin, fighter, event, koef, mainEv) {
     console.log('data='+data);
 }
 
+function updCurrency() {
+    let test = new XMLHttpRequest();
+    test.open('POST', 'controllers/updateUserMoney.php', true);
+    test.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    test.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let response = this.responseText;
+            console.log("answer from ajax: " + response);
+            if(response !== ''){
+                document.getElementById('currency').innerHTML = response;
+            }
 
+        }
+    };
+    let data = 'getResult=1';
+    test.send(data);
+}
+updCurrency();

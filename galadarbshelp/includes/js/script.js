@@ -41,22 +41,6 @@ function showSuccessMessage(message) {
     }, 5000);
 }
 
-// function getValue(inputCtrl, event, profileForm, id){
-//     event.preventDefault();
-//     let msg = document.getElementById('msg'+id);
-//     let form = document.getElementById(profileForm);
-//     let formData = new FormData(form);
-//     let xmlhttp = new XMLHttpRequest();
-//
-//     xmlhttp.onreadystatechange = function() {
-//         if (this.readyState == 4 && this.status == 200){
-//             msg.innerHTML = this.responseText;
-//         }
-//     };
-//     xmlhttp.open("POST", "controllers/"+inputCtrl, true);
-//     xmlhttp.send(formData);
-// }
-
 function getValue(inputCtrl, event, profileForm, id){
     event.preventDefault();
     let msg = document.getElementById('msg'+id);
@@ -90,7 +74,6 @@ function deleteUser(userID) {
             }
         }
     };
-    //Ajax prieksh currency un datubazēm.
     xmlhttp.open("GET", "controllers/deleteUser.php?" + userID, true);
     xmlhttp.send();
 
