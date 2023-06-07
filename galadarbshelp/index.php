@@ -19,11 +19,11 @@ include "includes/views/components/header.php"; ?>
                     class="text-white text-4xl lg:text-6xl text-center hover:text-[#e4c065] hover:transition duration-300 ease-out hover:scale-110">
                 What is FFC?</h1></a>
         <p class="indent-8 text-sm sm:text-base md:text-base lg:text-lg xl:text-2xl text-white text-center w-[95%] lg:w-[60%] xl:w-[40%]">
-            FFC also known by its full name Fantasy Fighting Championship is a virtual betting game where you can bet on
-            real life UFC fights. The game is free to play, and you can win virtual money otherwise known as in-game
-            currency. You can use this in-game currency to bet on real life UFC fights. The more you bet the more you
-            can win. It is crucial for the player to make the right decisions when betting on fights. At the end of the
-            month players are ranked based on their in-game currency. The top 5 players are placed on the podium.
+            Welcome to Fantasy Fighting Championship (FFC), the ultimate virtual fighting experience where users can bet
+            on real-life fights using virtual currency and compete with other fans to test their prediction skills.
+            To get started, simply create an account on the FFC website. Browse upcoming fights and place virtual bets
+            on the fighters you believe will win. Successful bets earn virtual winnings, which can be used to place
+            bigger bets and improve your ranking on the FFC leaderboards. Good luck!
         </p>
     </div>
 </main>
