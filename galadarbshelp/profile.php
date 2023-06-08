@@ -62,7 +62,7 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                         <div class="topTitle flex flex-col justify-center items-center">
                             <h1 class="text-2xl min-[425px]:text-3xl font-bold text-[#F9FAFA]">Account Settings</h1>
                         </div>
-                        <div class="items flex flex-col gap-4 lg:flex-row lg:gap-12">
+                        <div class="items flex flex-col gap-4 min-[1420px]:flex-row lg:gap-12">
                             <div class="rightItemsAcc flex flex-col gap-4">
                                 <div class="nameInput">
                                     <p class="text-lg text-[#F9FAFA]">First Name</p>
@@ -143,12 +143,12 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                     <div class="topTitle flex flex-col justify-center items-center">
                         <h1 class="text-2xl min-[425px]:text-3xl font-bold text-[#F9FAFA]">Profile Settings</h1>
                     </div>
-                    <div class="items flex flex-col gap-16 ml-2 xl:m-0 justify-center items-center">
+                    <div class="items flex flex-col gap-12 ml-2 xl:m-0 justify-center items-center">
                         <div class="profilePicture flex flex-col justify-center items-center">
                             <img src="<?php +profilePic($conn); ?>"
                                  class="w-40 h-40 rounded-full border-8 drop-shadow-2xl" alt="userImage">
                         </div>
-                        <div class="flex flex-col lg:flex-row gap-8 md:gap-16 xl:gap-40">
+                        <div class="flex flex-col lg:flex-row gap-8 md:gap-16 lg:gap-12 xl:gap-32">
                             <div class="leftItemsAcc flex flex-col gap-4 md:gap-6">
                                 <div class="emailOutput">
                                     <p class="text-lg md:text-xl text-white">Your e-mail: <?php email($conn); ?></p>

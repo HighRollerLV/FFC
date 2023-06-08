@@ -41,6 +41,12 @@ body {
     animation: reveal 3000ms ease-in-out forwards 200ms, glow 2500ms linear infinite 2000ms;
 }
 
+.active{
+    background-color: #e4c065 !important;
+    color: #4E4E4E !important;
+}
+
+
 @-webkit-keyframes reveal {
     80% {
         letter-spacing: 8px;
