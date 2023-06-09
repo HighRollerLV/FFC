@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Veiksmīgas reģistrācijas paziņojums.
 function showSuccessMessage(message) {
     const successBox = document.createElement('div');
-    successBox.classList.add('fixed', 'bottom-4', 'right-4', 'z-50');
+    successBox.classList.add('fixed', 'bottom-4', 'right-4', 'z-50', 'transition-opacity', 'duration-3000', 'opacity-100');
     successBox.innerHTML = `
         <div class="bg-[#4e4e4e] text-[#e4c065] px-6 py-4 rounded-lg shadow-lg">
             <p class="text-xl font-bold">${message}</p>
@@ -44,9 +44,14 @@ function showSuccessMessage(message) {
     document.body.appendChild(successBox);
 
     setTimeout(function () {
-        successBox.remove();
-    }, 5000);
+        successBox.classList.remove('opacity-100');
+        successBox.classList.add('opacity-0');
+        setTimeout(function() {
+            successBox.remove();
+        }, 3000);
+    }, 3000);
 }
+
 // Iegūst ievadformu datus un padod tos tālāk uz php failiem. Izmanto priekš lietotāja profila konfigurēšanas.
 function getValue(inputCtrl, event, profileForm, id) {
     // Novērš notikuma noklusējuma uzvedību.

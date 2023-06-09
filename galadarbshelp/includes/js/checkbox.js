@@ -205,20 +205,5 @@ function updCurrency() {
     test.send(data);
 }
 
-/*function addStyle(){
-    let button = document.querySelectorAll('.Buttons')
-    if (button.classList.contains('active')) {
-        button.classList.add('bg-[#e4c065]');
-        button.classList.add('text-[#4E4E4E]');
-    } else {
-        // Pievieno sarkanu ikonu, ja nav uzspiesta poga
-        button.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'px-4', 'py-2');
-        button.innerHTML = '';
-        let icon = document.createElement('i');
-        icon.classList.add('uil', 'uil-ban', 'text-red-500');
-        button.appendChild(icon);
-    }
-}*/
-
 
 updCurrency();

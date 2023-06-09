@@ -48,12 +48,12 @@ if ($stmt) {
         $eventId = "SELECT * FROM eventInfo WHERE competitionId = $evId";
         $eventSelected = select($eventId, $conn);
         $eventSelected = $eventSelected->fetch_assoc();
-    
+
 
         $currentEvent = $eventSelected["event"];
         $cardType = $rowEv["cardType"];
-    
-    	$bets = "SELECT * FROM UserBets WHERE SingleEventId = ".$rowEv['id']." AND userId = $userID";
+
+        $bets = "SELECT * FROM UserBets WHERE SingleEventId = " . $rowEv['id'] . " AND userId = $userID";
         $currentBet = select($bets, $conn);
         $currentBet = $currentBet->fetch_assoc();
 //        echo "<pre>";
@@ -149,49 +149,56 @@ if ($stmt) {
                             type="button"
                             data-amount="10"
                             onclick="activateButton(<?= $rowEv['id'] ?>,10)"
-                            class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition duration-300 ease-out
-                             <?php if(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 10) {
+                            class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl
+                             hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in
+                             hover:transition duration-300 ease-out
+                                 <?php if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 10) {
                                 echo "active";
-                            }elseif(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 10){
+                            } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 10) {
                                 echo "disabled";
                                 echo "uil uil-ban text-red-500";
                             }
 
-                        ?>
-                        "
+                            ?>
+                                 "
                     >
                         <?php
                         if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 10) {
                             echo "10";
                         } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 10) {
                             echo "";
-                        }else{
+                        } else {
                             echo "10";
                         }
                         ?>
 
                     </button>
+                    <!--                    Ja likmes poga ir uzspiesta un ir izvēlēts cīkstonis, tad izvada pogu ar aktīvu klasi un vērtību noteikto-->
+                    <!--                    Ja likmes poga ir uzspiesta pārējās pogas tiek atslēgtas un tiek pievienota ikona, lai norādītu to-->
+                    <!--                    Ja likmes poga nav nospiesta, tad visām pogā tiek piesķirta to sākuma vērtība-->
                     <button value="20"
                             id="bet-<?= $rowEv['id'] ?>-20"
                             type="button"
                             data-amount="20"
                             onclick="activateButton(<?= $rowEv['id'] ?>,20)"
-                            class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition duration-300 ease-out
-                                <?php if(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 20) {
+                            class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl
+                            hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in
+                            hover:transition duration-300 ease-out
+                                <?php if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 20) {
                                 echo "active";
-                            }elseif(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 20){
+                            } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 20) {
                                 echo "disabled";
                                 echo "uil uil-ban text-red-500";
                             }
                             ?>
-                            "
-                                      >
+                                "
+                    >
                         <?php
                         if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 20) {
                             echo "20";
                         } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 20) {
                             echo "";
-                        }else{
+                        } else {
                             echo "20";
                         }
                         ?>
@@ -201,22 +208,24 @@ if ($stmt) {
                             type="button"
                             data-amount="50"
                             onclick="activateButton(<?= $rowEv['id'] ?>,50)"
-                            class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition duration-300 ease-out
-                               <?php if(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 50) {
+                            class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl
+                            hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition
+                            duration-300 ease-out
+                                <?php if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 50) {
                                 echo "active";
-                            }elseif(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 50){
+                            } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 50) {
                                 echo "disabled";
                                 echo "uil uil-ban text-red-500";
                             }
                             ?>
-                            "
+                                "
                     >
                         <?php
                         if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 50) {
                             echo "50";
                         } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 50) {
                             echo "";
-                        }else{
+                        } else {
                             echo "50";
                         }
                         ?>
@@ -227,23 +236,23 @@ if ($stmt) {
                             data-amount="100"
                             onclick="activateButton(<?= $rowEv['id'] ?>,100)"
                             class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl
-                hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition
-                duration-300 ease-out
-                <?php if(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 100) {
-                                                echo "active";
-                                            }elseif(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 100){
-                                                echo "disabled";
-                                                echo "uil uil-ban text-red-500";
-                                            }
-                                            ?>
-                "
+                            hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition
+                            duration-300 ease-out
+                                <?php if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 100) {
+                                echo "active";
+                            } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 100) {
+                                echo "disabled";
+                                echo "uil uil-ban text-red-500";
+                            }
+                            ?>
+                                "
                     >
                         <?php
                         if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 100) {
                             echo "100";
                         } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 100) {
                             echo "";
-                        }else{
+                        } else {
                             echo "100";
                         }
                         ?>
@@ -254,23 +263,23 @@ if ($stmt) {
                             data-amount="200"
                             onclick="activateButton(<?= $rowEv['id'] ?>,200)"
                             class="currency-btn-<?= $rowEv['id'] ?> rounded bg-[#4E4E4E] text-[#e4c065] font-bold w-20 h-[2rem] text-xl
-                hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition
-                duration-300 ease-out
-<?php if(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 200) {
+                            hover:bg-[#e4c065] hover:text-[#4E4E4E] transition duration-150 ease-out hover:ease-in hover:transition
+                            duration-300 ease-out
+                                <?php if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 200) {
                                 echo "active";
-                            }elseif(isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 200){
+                            } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 200) {
                                 echo "disabled";
                                 echo "uil uil-ban text-red-500";
                             }
                             ?>
-"
+                                "
                     >
                         <?php
                         if (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] == 200) {
                             echo "200";
                         } elseif (isset($currentBet['BetAmount']) && $currentBet['BetAmount'] !== 200) {
                             echo "";
-                        }else{
+                        } else {
                             echo "200";
                         }
                         ?>
