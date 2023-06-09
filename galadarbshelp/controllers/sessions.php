@@ -3,9 +3,11 @@
 // šī funkcija pārbauda vai sesija ir sākusies, ja nav, tad tiek pāradresēts uz reģistrācijas vietni
 function userID()
 {
+    // Pārbauda vai sesija ir sākusies
     if (isset($_SESSION['logged'])) {
         $userID = $_SESSION['user'];
         return $_SESSION['user'];
+        // Ja nav, tad tiek pāradresēts uz reģistrācijas vietni
     } else {
         header("Location:./register.php");
     }
@@ -13,6 +15,7 @@ function userID()
 // Ja ir nospiesta hipersaite "Iziet", tad tiek izsaukta šī funkcija, kas iznīcina sesiju un pāradresē uz reģistrācijas vietni
 function logOut()
 {
+    // Pārbauda vai ir nospiesta hipersaite "EXIT", ja ir tad iznīcina sesiju un pāradresē uz reģistrācijas vietni
     if (isset($_POST['logOut'])) {
         session_destroy();
         header("Location:./register.php");
@@ -171,6 +174,7 @@ function age($conn)
 // Šī funkcija pārbauda vai lietotājs ir pieslēdzies un ja ir tad tiek pāradresēts uz index.php vietni
 function loggedIn()
 {
+    // Pārbauda vai sesija ir sākusies, ja ir tad tiek pāradresēts uz index.php vietni
     if (isset($_SESSION['logged'])) {
         header("Location:./index.php");
     }

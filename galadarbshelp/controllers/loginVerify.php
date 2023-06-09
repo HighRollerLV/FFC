@@ -2,20 +2,20 @@
 session_start();
 include "../models/dbOperations.php";
 include "../config/db.php";
-//Check if email and password are set
+//Pārbauda vai lietotājs ir ievadījis e-pasta adresi un paroli
 if (isset($_POST['email2']) && isset($_POST['password2'])) {
-    //Get email and password values
     $email = mysqli_real_escape_string($conn, $_POST['email2']);
     $password = mysqli_real_escape_string($conn, $_POST['password2']);
-//Retrieve user details from the database by email
+//Iegūst datus no datu bāzes
     $stmt = $conn->prepare("SELECT * FROM loginhelp WHERE email = ?");
+    //Novērš SQL injekcijas
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-//Check if the user exists
+//Pārbauda vai lietotājs eksistē
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            //Check if the password matches
+            //Pārbauda vai parole un e-pasta adrese sakrīt ar datu bāzes vērtībām
             if ($email == $row['email'] && password_verify($password, $row['password'])) {
                 $_SESSION['user'] = $row['id'];
                 $_SESSION['logged'] = true;
@@ -27,6 +27,7 @@ if (isset($_POST['email2']) && isset($_POST['password2'])) {
     } else {
         $users = "User does not exist";
     }
+    //Pārbauda vai visi lauki ir aizpildīti
 } else {
     $users = "Fill in all fields!";
 }

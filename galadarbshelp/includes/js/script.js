@@ -24,6 +24,7 @@ function getInput(inputCtrl, event, inputForm) {
     xmlhttp.open("POST", "controllers/" + inputCtrl, true);
     xmlhttp.send(formData);
 }
+
 // Parāda paziņojumu, ja ir veiksmīgi reģistrējies.
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showSuccessMessage(message);
     }
 });
+
 // Veiksmīgas reģistrācijas paziņojums.
 function showSuccessMessage(message) {
     const successBox = document.createElement('div');
@@ -46,7 +48,7 @@ function showSuccessMessage(message) {
     setTimeout(function () {
         successBox.classList.remove('opacity-100');
         successBox.classList.add('opacity-0');
-        setTimeout(function() {
+        setTimeout(function () {
             successBox.remove();
         }, 3000);
     }, 3000);
@@ -76,6 +78,7 @@ function getValue(inputCtrl, event, profileForm, id) {
         });
     console.log(msg)
 }
+
 // Funkcija, kas izdzēš lietotāju no datubāzes un parvieto to uz reģistrācijas lapu.
 function deleteUser(userID) {
     let msg = document.getElementById('deleteUser');
@@ -93,6 +96,7 @@ function deleteUser(userID) {
     xmlhttp.send();
 
 }
+
 // Funkcija, kas ļauj lietotājam pārvietoties no reģistrācijas uz pieslēgšanās lapu un otrādi.
 function displayShow() {
     // Novērš notikuma noklusējuma uzvedību.
@@ -122,6 +126,7 @@ function displayShow() {
         y.style.display = "flex";
     }
 }
+
 // Funkcija, kas pārvērš navigācijas joslu uz hamburgera navigāciju.
 function hamburger() {
     let menu = document.getElementById("mobile-menu-2");

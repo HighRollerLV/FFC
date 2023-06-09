@@ -186,6 +186,7 @@ function updCoin(newCoin, fighter, event, koef, mainEv) {
     xhttp.send(data);
     console.log('data=' + data);
 }
+
 //Funkcija, kas padod lietotāja atjaunināto valūtu uz updateUserMoney.php
 function updCurrency() {
     let test = new XMLHttpRequest();

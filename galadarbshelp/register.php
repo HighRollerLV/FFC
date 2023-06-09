@@ -22,6 +22,7 @@ loggedIn();
 <div class="Holder flex flex-col min-h-screen w-full justify-center items-center sm:bg-[url('includes/images/ffc_background.png')] object-fill ">
     <div class="box flex flex-row h-full sm:min-h-[50vh] rounded drop-shadow-2xl flex-wrap">
         <div class="boxLeft flex bg-[#959595] flex-col justify-center items-center gap-4 flex-1 p-20 min-w-[20rem] rounded-l-lg">
+            <!--            Ievades forma-->
             <form class="forms flex flex-col" id="form">
                 <div id="divReg" class="hidden flex-col justify-center items-center gap-8">
                     <h1 class="text-4xl font-bold text-[#F9FAFA]">Register</h1>
