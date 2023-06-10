@@ -83,9 +83,11 @@ function getValue(inputCtrl, event, profileForm, id) {
 function deleteUser(userID) {
     let msg = document.getElementById('deleteUser');
     let xmlhttp = new XMLHttpRequest();
+    // Iegūst datus no formas.
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == 0) {
+                // Ja ir "true", tad lietotāju izdzēš un pārslēdz uz reģistrācijas lapu.
                 window.location = "register.php";
             } else {
                 msg.innerHTML = this.responseText;
@@ -94,7 +96,6 @@ function deleteUser(userID) {
     };
     xmlhttp.open("GET", "controllers/deleteUser.php?" + userID, true);
     xmlhttp.send();
-
 }
 
 // Funkcija, kas ļauj lietotājam pārvietoties no reģistrācijas uz pieslēgšanās lapu un otrādi.

@@ -237,15 +237,18 @@ $row = $results->fetch_array(MYSQLI_ASSOC);
                         </form>
                     </div>
                 </div>
+                <!--                Dzēst lietotāja no datu bāzes-->
                 <div id="deleteItems" style="display:none"
                      class="deleteItems flex flex-col tabShow min-h-[91.8vh] justify-center items-center gap-6 w-[100%]">
                     <div class="topTitle flex flex-col justify-center items-center">
                         <h1 class="text-2xl min-[425px]:text-3xl font-bold text-[#F9FAFA]">Delete Account</h1>
                     </div>
+                    <!--                    Attēlo lietotāja lietotājvārdu un pārvaicā vai tiešām vēlas dzēst savu kontu-->
                     <div class="deleteAccount flex flex-col gap-2 justify-center items-center xl:px-52 lg:px-32 md:px-16">
                         <p class="text-lg text-[#F9FAFA] text-center">Do you really want to delete your
                             account <?php nickNameProfile($conn); ?> ?</p>
                     </div>
+                    <!--                    Dzēst kontu poga-->
                     <div class="buttonDelete flex flex-col gap-2 justify-center items-center">
                         <button onclick="deleteUser(<?php echo $userID; ?>)" name="delete" id="deleteUser"
                                 class="rounded-md text-lg bg-[#959595] hover:bg-[#e4c065] border-2 border-[#F9FAFA] text-[#F9FAFA] w-[16vh] h-[4rem] font-bold">

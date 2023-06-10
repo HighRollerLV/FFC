@@ -144,6 +144,9 @@ if ($stmt) {
                 </div>
                 <!--                Izvada pogas, kas ļauj lietotājam izvēlēties likmes summu-->
                 <div class="Buttons flex flex-row gap-4 justify-center items-center flex-wrap">
+                    <!--                    Ja likmes poga ir uzspiesta un ir izvēlēts cīkstonis, tad izvada pogu ar aktīvu klasi un vērtību noteikto-->
+                    <!--                    Ja likmes poga ir uzspiesta pārējās pogas tiek atslēgtas un tiek pievienota ikona, lai norādītu to-->
+                    <!--                    Ja likmes poga nav nospiesta, tad visām pogā tiek piesķirta to sākuma vērtība-->
                     <button value="10"
                             id="bet-<?= $rowEv['id'] ?>-10"
                             type="button"
@@ -173,9 +176,6 @@ if ($stmt) {
                         ?>
 
                     </button>
-                    <!--                    Ja likmes poga ir uzspiesta un ir izvēlēts cīkstonis, tad izvada pogu ar aktīvu klasi un vērtību noteikto-->
-                    <!--                    Ja likmes poga ir uzspiesta pārējās pogas tiek atslēgtas un tiek pievienota ikona, lai norādītu to-->
-                    <!--                    Ja likmes poga nav nospiesta, tad visām pogā tiek piesķirta to sākuma vērtība-->
                     <button value="20"
                             id="bet-<?= $rowEv['id'] ?>-20"
                             type="button"

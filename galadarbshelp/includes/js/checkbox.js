@@ -182,6 +182,7 @@ function updCoin(newCoin, fighter, event, koef, mainEv) {
             // console.log("answer from ajax: " + response);
         }
     };
+    //Iegūst datus un padod uz updateCurrency.php
     let data = 'coin=' + newCoin + '&fighter=' + fighter + '&event=' + event + '&koef=' + koef + '&mainEv=' + mainEv;
     xhttp.send(data);
     console.log('data=' + data);
@@ -190,6 +191,7 @@ function updCoin(newCoin, fighter, event, koef, mainEv) {
 //Funkcija, kas padod lietotāja atjaunināto valūtu uz updateUserMoney.php
 function updCurrency() {
     let test = new XMLHttpRequest();
+    // padod datus uz updateUserMoney.php
     test.open('POST', 'controllers/updateUserMoney.php', true);
     test.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     test.onreadystatechange = function () {
@@ -203,6 +205,7 @@ function updCurrency() {
         }
     };
     let data = 'getResult=1';
+    // aizsūta datus uz updateUserMoney.php
     test.send(data);
 }
 
