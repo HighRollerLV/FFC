@@ -8,7 +8,7 @@ $conn = new mysqli($host, $user, $pass, $dbName);
 
 function getEvent($eventId)
 {
-    $xml = simplexml_load_file("https://api.sportradar.com/mma/trial/v2/en/seasons/sr:season:" . $eventId . "/probabilities.xml?api_key=meu6ntmbrxr6q7n7b8n7rk4z") or die("Error: Cannot create object");
+    $xml = simplexml_load_file("https://api.sportradar.com/mma/trial/v2/en/seasons/sr:season:" . $eventId . "/probabilities.xml?api_key=8uh6qjpmfcbnqc4xazswdcva") or die("Error: Cannot create object");
 
     $objJsonDocument = json_encode($xml);
     $objJsonDocument = str_replace('@', '', $objJsonDocument);

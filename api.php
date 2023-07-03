@@ -9,13 +9,13 @@ $conn = new mysqli($host, $user, $pass, $dbName);
 if($conn->connect_error){
     echo "Notikus kļūda savienojumā!";
 }
-    $apiData ="https://api.sportradar.com/mma/trial/v2/en/competitions.xml?api_key=meu6ntmbrxr6q7n7b8n7rk4z";
+    $apiData ="https://api.sportradar.com/mma/trial/v2/en/competitions.xml?api_key=8uh6qjpmfcbnqc4xazswdcva";
 
-    $apiData2 = "https://api.sportradar.com/mma/trial/v2/en/rankings.xml?api_key=meu6ntmbrxr6q7n7b8n7rk4z";
+    $apiData2 = "https://api.sportradar.com/mma/trial/v2/en/rankings.xml?api_key=8uh6qjpmfcbnqc4xazswdcva";
 
-    $apiData3 = "https://api.sportradar.com/mma/trial/v2/en/seasons.xml?api_key=meu6ntmbrxr6q7n7b8n7rk4z";
+    $apiData3 = "https://api.sportradar.com/mma/trial/v2/en/seasons.xml?api_key=8uh6qjpmfcbnqc4xazswdcva";
 
-    // $apiData4 = "https://api.sportradar.com/mma/trial/v2/en/seasons.xml?api_key=meu6ntmbrxr6q7n7b8n7rk4z";
+    // $apiData4 = "https://api.sportradar.com/mma/trial/v2/en/seasons.xml?api_key=8uh6qjpmfcbnqc4xazswdcva";
     
 function getApi($apiData){    
    libxml_use_internal_errors(TRUE);
